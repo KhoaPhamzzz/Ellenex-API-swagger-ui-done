@@ -34,5 +34,17 @@ footer {
   
   .swagger-container {
     width: 100%; /* The swagger-container will take the full width of the .content div */
+    // background-color: red;
+
+    .swagger-ui{
+      background-color: red !important;
+      background: red !important;
+    }
   }
+
+
   
+  // background: rgb(255 255 255);
+  //   border-color: #2980b9;
+
+  // .swagger-ui .opblock .opblock-put <-- path

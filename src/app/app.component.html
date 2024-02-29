@@ -1,11 +1,10 @@
-<!-- app.component.html -->
-
 <header>
   <h1>Header Content</h1>
 </header>
 
 <div class="main-container">
-  <div class="side-nav">
+  <!-- sidebar -->
+  <div class="side-nav"> 
     <ul>
       <li *ngFor="let section of apiSections">
         <a href="#" (click)="navigateToTag(section.tag, $event)">{{ section.name }}</a>
@@ -14,20 +13,26 @@
   </div>
 
   <div class="content">
+    <h1>{{titleName}}</h1>
     <h1>Welcome to the API Documentation</h1>
     <a routerLink="/api-docs">Go to API Docs</a>
-    <div id="swagger-ui" class="swagger-container"></div>
+    <div id="swagger-ui" class="swagger-container">
+      <div *ngFor="let section of apiSections" [id]="section.tag">
+        <!-- Content will be dynamically loaded by Swagger UI -->
+      </div>
+    </div>
   </div>
 </div>
 <div class="side-nav">
-  <ul>
+  <ul>  
     <li *ngFor="let section of apiSections">
-      <a href="#" (click)="navigateToTag(section.tag, $event)">{{ section.name }}</a>
+      <a href="#" (click)="navigateToTag(section.tag, $event)">
+        {{ section.name }}
+      </a>
     </li>
+    
   </ul>
 </div>
-
-
 <footer>
   <p>Footer Content</p>
 </footer>

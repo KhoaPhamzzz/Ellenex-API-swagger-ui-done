@@ -1,11 +1,5 @@
 {
   "openapi": "3.0.0",
-  "servers": [
-    {
-      "url": "https://api.ellenex.net/v1",
-      "description": "Ellenex v1 api server"
-    }
-  ],
   "info": {
     "title": "Ellenex for developers",
     "description": "Ellenex v1 api documentation\n\n# Authentication\n\n<!-- ReDoc-Inject: <security-definitions> -->",
@@ -14,11 +8,18 @@
       "url": "https://api.ellenex.net",
       "email": "developer@ellenex.com"
     },
+    "version": "1.0.0",
     "x-logo": {
       "url": "http://api.ellenex.net/logo.png",
       "altText": "Ellenex logo"
     }
   },
+  "servers": [
+    {
+      "url": "https://api.ellenex.net/v1",
+      "description": "Ellenex v1 api server"
+    }
+  ],
   "x-tagGroups": [
     {
       "name": "Device Inventory",
