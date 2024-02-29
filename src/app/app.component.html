@@ -1,0 +1,33 @@
+<!-- app.component.html -->
+
+<header>
+  <h1>Header Content</h1>
+</header>
+
+<div class="main-container">
+  <div class="side-nav">
+    <ul>
+      <li *ngFor="let section of apiSections">
+        <a href="#" (click)="navigateToTag(section.tag, $event)">{{ section.name }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <h1>Welcome to the API Documentation</h1>
+    <a routerLink="/api-docs">Go to API Docs</a>
+    <div id="swagger-ui" class="swagger-container"></div>
+  </div>
+</div>
+<div class="side-nav">
+  <ul>
+    <li *ngFor="let section of apiSections">
+      <a href="#" (click)="navigateToTag(section.tag, $event)">{{ section.name }}</a>
+    </li>
+  </ul>
+</div>
+
+
+<footer>
+  <p>Footer Content</p>
+</footer>

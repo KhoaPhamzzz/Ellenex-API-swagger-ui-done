@@ -1,0 +1,38 @@
+/* app.component.scss */
+
+header {
+    background-color: red; /* Example background color */
+    position: relative;
+    padding: 15px;
+    text-align: center;
+    
+}
+  
+
+footer {
+    background-color: #343a40; /* Example background color */
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* app.component.scss */
+.main-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .side-nav {
+    width: 30%;
+    /* Additional styling for the sidebar (background, padding, etc.) */
+    background-color: azure;
+  }
+  
+  .content {
+    width: 70%;
+  }
+  
+  .swagger-container {
+    width: 100%; /* The swagger-container will take the full width of the .content div */
+  }
+  
