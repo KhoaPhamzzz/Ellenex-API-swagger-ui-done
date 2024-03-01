@@ -53,6 +53,7 @@ export class AppComponent implements AfterViewInit {
 
   navigateToTag(tag: string, event: MouseEvent): void {
     event.preventDefault();
+    event.stopPropagation();
     this.selectedTag = tag;
     const targetId = `operations-tag-${tag}`;
     setTimeout(() => {
