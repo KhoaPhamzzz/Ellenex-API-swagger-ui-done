@@ -1,38 +1,55 @@
-<header>
-  <h1>Header Content</h1>
-</header>
+
 
 <div class="main-container">
   <!-- sidebar -->
-  <div class="side-nav"> 
-    <ul>
-      <li *ngFor="let section of apiSections">
-        <a href="#" (click)="navigateToTag(section.tag, $event)">{{ section.name }}</a>
+  <div class="side-nav">
+    <div class="px-4 py-1">  <!-- for  Logo -->
+      <div class="logo"></div>
+    </div>
+    <div class="px-6 relative pb-[6px] pt-[4px] text-white font-sans text-sm">
+      END POINTS
+      <div class="absolute bottom-0 left-3 right-3 border-b border-cyan-300"></div>
+    </div>
+    <ul class="list-none rounded-lg p-[10px] overflow-auto">
+      <li class="custom-background rounded mb-[4px] last:mb-0" *ngFor="let section of apiSections">
+        <a href="#" [class.selected]="selectedTag === section.tag"
+           class="flex items-center hover:bg-white hover:text-black text-white text-center py-2 rounded no-underline pl-3.5"
+           (click)="navigateToTag(section.tag, $event)">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fit="" height="20" width="20" preserveAspectRatio="xMidYMid meet" focusable="false" class="mr-2">
+            <!-- SVG paths here -->
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.867 19.125h.008v.008h-.008v-.008z"></path>
+          </svg>
+          {{ section.name }}
+        </a>
       </li>
+      <div class="px-6 relative pb-[6px] pt-[4px] text-white font-sans text-sm mt-[15px] -ml-[15px]">
+        SCHEMAS
+        <div class="absolute bottom-0 left-1 right-1 border-b border-cyan-300 mt-[70px]"></div>
+      </div>
+      <div class="custom-background rounded">
+        <li class="schemas-button mb-[4px] pt-[6px] mt-[10px] hover:bg-white hover:text-black flex items-center text-white text-center py-2 rounded no-underline pl-3.5"
+        [class.selected]="selectedTag === 'schemas'"
+        (click)="navigateToModels($event)">
+      Go to Schemas
+    </li>
+      </div>
     </ul>
   </div>
 
   <div class="content">
-    <h1>{{titleName}}</h1>
-    <h1>Welcome to the API Documentation</h1>
-    <a routerLink="/api-docs">Go to API Docs</a>
-    <div id="swagger-ui" class="swagger-container">
+    <header>
+      <h1></h1>
+    </header>
+    <div id="swagger-ui" class="swagger-container max-w-full">
       <div *ngFor="let section of apiSections" [id]="section.tag">
         <!-- Content will be dynamically loaded by Swagger UI -->
       </div>
     </div>
+      <footer class="pb-6">
+        <p class="text-center text-blue-400">© Powered by ellenex All Rights Reserved.</p>
+      </footer>
   </div>
 </div>
-<div class="side-nav">
-  <ul>  
-    <li *ngFor="let section of apiSections">
-      <a href="#" (click)="navigateToTag(section.tag, $event)">
-        {{ section.name }}
-      </a>
-    </li>
-    
-  </ul>
-</div>
-<footer>
-  <p>Footer Content</p>
-</footer>
+
+

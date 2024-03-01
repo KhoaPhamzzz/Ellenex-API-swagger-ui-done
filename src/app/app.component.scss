@@ -1,50 +1,54 @@
-/* app.component.scss */
 
-header {
-    background-color: red; /* Example background color */
-    position: relative;
-    padding: 15px;
-    text-align: center;
-    
-}
-  
 
-footer {
-    background-color: #343a40; /* Example background color */
-    color: white;
-    padding: 15px;
-    text-align: center;
+/* Ensures that all elements include padding and border in their dimensions */
+*, *::before, *::after {
+  box-sizing: inherit;
 }
 
-/* app.component.scss */
+.logo {
+  background-image: url(./img/logo-white.png);
+  background-repeat: no-repeat;
+  background-position: left center; /* Aligns the logo to the left */
+  background-size: 130px auto; /* Adjusts the size of the logo */
+
+  height: 60px; /* You can adjust this if needed */
+  /* Remove the browser-specific background size properties as they are redundant */
+}
+
+.custom-background{
+  background-color: #0E4194B3;
+}
+
+
 .main-container {
-    display: flex;
-    width: 100%;
-  }
+  display: flex;
+  width: 100%;
   
-  .side-nav {
-    width: 30%;
-    /* Additional styling for the sidebar (background, padding, etc.) */
-    background-color: azure;
-  }
-  
-  .content {
-    width: 70%;
-  }
-  
-  .swagger-container {
-    width: 100%; /* The swagger-container will take the full width of the .content div */
-    // background-color: red;
+}
 
-    .swagger-ui{
-      background-color: red !important;
-      background: red !important;
-    }
-  }
+.side-nav {
+  position: fixed;
+  height: 100vh; /* Full height of the viewport */
+  width: 20%;
+  background-image: url(./img/side.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* Allows scrolling inside the nav if content overflows */
+}
 
 
-  
-  // background: rgb(255 255 255);
-  //   border-color: #2980b9;
 
-  // .swagger-ui .opblock .opblock-put <-- path
+.content {
+  margin-left: 20%; /* This will push the content to the right, preventing overlap with the side-nav */
+  width: 80%; /* Adjusts the width to fill the remaining space */
+  flex-grow: 1; /* Ensures it fills the horizontal space beside the sidebar */
+}
+
+.selected {
+  background-color: white;
+  color: black;
+  text-decoration: underline;
+}

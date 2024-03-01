@@ -1,24 +1,24 @@
-import { Component, AfterViewInit, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import SwaggerUI from 'swagger-ui';
-import { CommonModule } from '@angular/common'; // Import CommonModule for common directives
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    CommonModule, // CommonModule for *ngFor and other common directives
-    HttpClientModule // HttpClientModule for HTTP operations
+    CommonModule,
+    HttpClientModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
   title = 'API-swagger-ui';
-  apiSections: { tag: string, name: string }[] = []; //  declare array here - used to display list items
-  titleName = "AK IS THE GOAT"
+  apiSections: { tag: string, name: string }[] = [];
+  selectedTag: string | null = null;
 
   constructor(
     private http: HttpClient,
@@ -33,7 +33,7 @@ export class AppComponent implements AfterViewInit {
 
   loadApiSpec() {
     this.http.get<any>('./assets/ellenex-api.json').subscribe(data => {
-      this.apiSections = this.extractTagGroups(data); // 
+      this.apiSections = this.extractTagGroups(data);
       SwaggerUI({
         dom_id: '#swagger-ui',
         spec: data
@@ -41,21 +41,19 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  extractTagGroups(data: any): { tag: string, name: string, id: string }[] { // gets tags in ellenex-api.json
+  extractTagGroups(data: any): { tag: string, name: string, id: string }[] { 
     const sections: { tag: string, name: string, id: string }[] = [];
-
-    for (const group of data['x-tagGroups'] || []) {   // gets the group from Xtagname it would not work if json file does not have this.
+    for (const group of data['x-tagGroups'] || []) {   
       for (const tag of group.tags) {
         sections.push({ tag: tag, name: tag, id: `operations-tag-${tag}` });
       }
     }
-
-    return sections; // return array of objects to be used in apiSections
+    return sections;
   }
 
-  // Modify this function to navigate to the new ID
   navigateToTag(tag: string, event: MouseEvent): void {
     event.preventDefault();
+    this.selectedTag = tag;
     const targetId = `operations-tag-${tag}`;
     setTimeout(() => {
       const element = document.querySelector(`#${targetId}`);
@@ -63,5 +61,14 @@ export class AppComponent implements AfterViewInit {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }, 300);
+  }
+
+  navigateToModels(event: MouseEvent): void {
+    event.preventDefault();
+    this.selectedTag = 'schemas';
+    const modelsElement = document.querySelector('.models-control');
+    if (modelsElement) {
+      modelsElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

@@ -1,27 +1,35 @@
-# APISwaggerUi
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+First install all the depencies `npm install`
 
-## Code scaffolding
+Then run `ng serve --open` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## To edit Open API Specification
 
-## Running unit tests
+First open the json file located in app/assests/ellenex-api.json, then make it edit on either on `[Swagger Editor](hhttps://editor.swagger.io/)`  or install a extension in VSCode called "Swagger Viewer"
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**<span style="color: red;">Note:</span>** Must follow the old format to make sure the tag is working, e.g. 
 
-## Running end-to-end tests
+```json
+"x-tagGroups": [
+    {
+      "name": "Device Inventory",
+      "tags": [
+        "edi-v1"
+      ]
+    },
+    {
+      "name": "Alerts & Notifications",
+      "tags": [
+        "eara-v1",
+        "edna-v1"
+      ]
+    },
+    //...more tags can be added here
+]
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+If you want to make more changes, go to the [app.component.ts](./src/app/app.component.ts) file.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
