@@ -1,8 +1,20 @@
 
 
   <div class="main-container">
+
+    <!-- Add overlay div here -->
+    <div class="overlay" *ngIf="isSideNavVisible" (click)="toggleSideNav()"></div>
+
     <!-- sidebar -->
-    <div class="side-nav">
+    <div class="side-nav" [class.active]="isSideNavVisible">
+      <div class="hamburger-menu pt-[9px]" [class.white]="isSideNavVisible" (click)="toggleSideNav()">     
+        <!-- SVG for Close (X) Icon, shown only when side-nav is active -->
+        <svg *ngIf="isSideNavVisible" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="3" x2="21" y2="21"></line>
+          <line x1="3" y1="21" x2="21" y2="3"></line>
+        </svg>
+      </div>  
+      
       <div class="px-4 py-1">  <!-- for  Logo -->
         <div class="logo"></div>
       </div>
@@ -38,8 +50,15 @@
     </div>
 
     <div class="content">
-      <header>
-        <h1></h1>
+      <header class="header-style">
+        <div class="hamburger-menu pt-[6px]" [class.white]="isSideNavVisible" (click)="toggleSideNav()">
+          <!-- SVG for Hamburger Menu -->
+          <svg *ngIf="!isSideNavVisible" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </div>  
       </header>
       <div id="swagger-ui" class="swagger-container max-w-full">
         <div *ngFor="let section of apiSections" [id]="section.tag">

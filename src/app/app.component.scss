@@ -5,48 +5,155 @@
 
 /* Styles for the logo */
 .logo {
-  background-image: url(./img/logo-white.png); /* Sets the logo image */
-  background-repeat: no-repeat; /* Prevents repeating the background image */
-  background-position: left center; /* Aligns the logo to the left and vertically centered */
-  background-size: 130px auto; /* Adjusts the size of the logo */
-  height: 60px; /* Sets the height of the logo */
+  background-image: url(./img/logo-white.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 130px auto;
+  height: 60px;
 }
 
 /* Custom background style used in various elements */
 .custom-background {
-  background-color: #0E4194B3; /* Sets a semi-transparent blue background color */
+  background-color: #0E4194B3;
 }
 
 /* Main container that holds the side navigation and content */
 .main-container {
-  display: flex; /* Enables flexible box layout */
-  width: 100%; /* Sets the width to fill the entire container */
+  display: flex;
+  width: 100%;
 }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Below the side-nav but above everything else */
+} 
 
 /* Styles for the side navigation bar */
 .side-nav {
-  position: fixed; /* Fixes the position relative to the viewport */
-  height: 100vh; /* Sets the height to fill the viewport */
-  width: 20%; /* Sets the width of the side navigation */
-  background-image: url(./img/side.jpg); /* Background image for the side navigation */
-  background-repeat: no-repeat; /* Prevents the background image from repeating */
-  background-position: center center; /* Centers the background image */
-  background-size: cover; /* Ensures the background covers the entire element */
-  top: 0; /* Aligns to the top of the viewport */
-  left: 0; /* Aligns to the left of the viewport */
-  overflow-y: auto; /* Enables vertical scrolling if the content overflows */
+  position: fixed;
+  height: 100vh;
+  width: 20%;
+  background-image: url(./img/side.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+  z-index: 1000;
+
+  /* Media query for smaller screens */
+  @media (max-width: 768px) {
+    left: -250px;
+    width: 250px;
+    transition: left 0.3s;
+
+    &.active {
+      left: 0;
+    }
+  }
 }
+
+/* Styles for the hamburger menu */
+.hamburger-menu {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  z-index: 1001;
+
+  svg {
+    stroke: white; /* Default black color for the lines of the icon */
+  }
+  
+  
+  .close-icon {
+    padding-top: 200px !important; /* Adjust the padding as needed */
+  }
+  
+  /* Ensures the icon lines are white when inside the expanded side nav */
+  .side-nav.active & svg {
+    stroke: #fff; /* Force white color for the lines of the icon */
+  }
+
+  /* Adjust position for collapsed side nav */
+  @media (max-width: 768px) {
+    .side-nav:not(.active) & {
+      position: fixed;
+      left: 15px;
+      right: auto;
+    }
+  }
+}
+
+/*Hide SVG on normal screen*/
+@media (min-width: 769px) {
+  .side-nav .hamburger-menu svg {
+    display: none;
+  }
+}
+/* Hide SVG on normal screen */
+@media (min-width: 769px) {
+  .content .hamburger-menu svg {
+    display: none;
+  }
+}
+
 
 /* Styles for the main content area */
 .content {
-  margin-left: 20%; /* Pushes the content to the right to avoid overlapping with the side-nav */
-  width: 80%; /* Occupies the remaining width of the viewport */
-  flex-grow: 1; /* Allows the element to grow and fill the available space */
+  padding-top: 20px;
+  margin-left: 20%;
+  width: 80%;
+  flex-grow: 1;
+  
+
+  /* Adjust content margin for smaller screens */
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 }
 
-/* Style for selected items, typically used for highlighting active links */
+/* Style for selected items */
 .selected {
-  background-color: white; /* Sets the background color to white */
-  color: black; /* Sets the text color to black */
-  text-decoration: underline; /* Underlines the text */
+  background-color: white;
+  color: black;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .header-style {
+    padding: 32px;
+    background-image: url(./img/banner.jpg);
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+}
+
+.header-style::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  backdrop-filter: blur(var(--scroll-blur, 0px)); /* Initial state with no blur */
+  background: transparent; /* Start with no gradient */
+  transition: backdrop-filter 0.3s ease, background 0.3s ease;
+}
+
+.header-style::after {
+  backdrop-filter: blur(var(--scroll-blur, 0px));
+  background: var(--scroll-gradient, transparent);
 }
