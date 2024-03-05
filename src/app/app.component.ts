@@ -43,7 +43,7 @@ export class AppComponent implements AfterViewInit {
     this.http.get<any>('./assets/ellenex-api.json').subscribe(data => {  // import json file
       let sections: ApiSection[] = this.extractTagGroups(data);
 
-      // Assign custom names to each section on side nav
+      // Assign custom names to each section on side nav need to change it to match the Open API Specification
       if (sections.length > 0) sections[0].customName = 'DEVICE INVENTORY';
       if (sections.length > 1) sections[1].customName = 'ALERT RULES';
       if (sections.length > 2) sections[2].customName = 'DATA NOTIFICATIONS';
