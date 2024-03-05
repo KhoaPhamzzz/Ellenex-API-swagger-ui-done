@@ -12,7 +12,7 @@
   height: 60px;
 }
 
-/* Custom background style used in various elements */
+/* Custom background style for button in side nav */
 .custom-background {
   background-color: #0E4194B3;
 }
@@ -23,7 +23,7 @@
   width: 100%;
 }
 
-.overlay {
+.overlay {  /* grey blur background for when side nav is expand in media viewport*/
   position: fixed;
   top: 0;
   left: 0;
@@ -59,6 +59,10 @@
   }
 }
 
+.blur-bg-text {   /* this is to make the header section of side nav more readable */
+  backdrop-filter: blur(1px);
+}
+
 /* Styles for the hamburger menu */
 .hamburger-menu {
   position: absolute;
@@ -72,7 +76,7 @@
   }
   
   
-  .close-icon {
+  .close-icon { /* x-icon closing icon */
     padding-top: 200px !important; /* Adjust the padding as needed */
   }
   
@@ -127,7 +131,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* style for header when using media viewport */
   .header-style {
     padding: 32px;
     background-image: url(./img/banner.jpg);

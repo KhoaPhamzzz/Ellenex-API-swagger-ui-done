@@ -5,6 +5,13 @@ import SwaggerUI from 'swagger-ui';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
+// Define the interface for each API section
+interface ApiSection {
+  tag: string;
+  name: string;
+  customName?: string; // Optional property for custom names
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -17,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class AppComponent implements AfterViewInit {
   title = 'API-swagger-ui';
-  apiSections: { tag: string, name: string }[] = [];
+  apiSections: ApiSection[] = []; // Use the ApiSection interface here
   selectedTag: string | null = null;
   isSideNavVisible: boolean = false; // Added for responsiveness
 
@@ -33,8 +40,20 @@ export class AppComponent implements AfterViewInit {
   }
 
   loadApiSpec() {
-    this.http.get<any>('./assets/ellenex-api.json').subscribe(data => {
-      this.apiSections = this.extractTagGroups(data);
+    this.http.get<any>('./assets/ellenex-api.json').subscribe(data => {  // import json file
+      let sections: ApiSection[] = this.extractTagGroups(data);
+
+      // Assign custom names to each section on side nav
+      if (sections.length > 0) sections[0].customName = 'DEVICE INVENTORY';
+      if (sections.length > 1) sections[1].customName = 'ALERT RULES';
+      if (sections.length > 2) sections[2].customName = 'DATA NOTIFICATIONS';
+      if (sections.length > 3) sections[3].customName = 'DATA PROCESSING';
+      if (sections.length > 4) sections[4].customName = 'DATA STORE';
+      if (sections.length > 5) sections[5].customName = 'USER & SUBSCRIPTION MANAGEMENT';
+      // ... add more as needed
+
+      this.apiSections = sections;
+
       SwaggerUI({
         dom_id: '#swagger-ui',
         spec: data
@@ -42,19 +61,20 @@ export class AppComponent implements AfterViewInit {
     });
   }
 
-  extractTagGroups(data: any): { tag: string, name: string, id: string }[] { 
-    const sections: { tag: string, name: string, id: string }[] = [];
+  extractTagGroups(data: any): ApiSection[] {     // get tag  name based on from json file and display to list
+    const sections: ApiSection[] = [];
     for (const group of data['x-tagGroups'] || []) {   
       for (const tag of group.tags) {
-        sections.push({ tag: tag, name: tag, id: `operations-tag-${tag}` });
+        sections.push({ tag: tag, name: tag });
       }
     }
     return sections;
   }
+  
 
-  navigateToTag(tag: string, event: MouseEvent): void {
+  navigateToTag(tag: string, event: MouseEvent): void {  // navigation based on perations-tag-tag of swagger UI
     event.preventDefault();
-    event.stopPropagation();
+    event.stopPropagation(); // prevent the page from going to ttop when  click 2nd time
     this.selectedTag = tag;
     const targetId = `operations-tag-${tag}`;
     setTimeout(() => {
@@ -65,7 +85,7 @@ export class AppComponent implements AfterViewInit {
     }, 300);
   }
 
-  navigateToModels(event: MouseEvent): void {
+  navigateToModels(event: MouseEvent): void {  // navigate to schemas  sections
     event.preventDefault();
     this.selectedTag = 'schemas';
     const modelsElement = document.querySelector('.models-control');
