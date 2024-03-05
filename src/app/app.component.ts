@@ -15,12 +15,9 @@ interface ApiSection {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    CommonModule,
-    HttpClientModule
-  ],
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements AfterViewInit {
   title = 'API-swagger-ui';
@@ -40,7 +37,8 @@ export class AppComponent implements AfterViewInit {
   }
 
   loadApiSpec() {
-    this.http.get<any>('./assets/ellenex-api.json').subscribe(data => {  // import json file
+    this.http.get<any>('./assets/ellenex-api.json').subscribe((data) => {
+      // import json file
       let sections: ApiSection[] = this.extractTagGroups(data);
 
       // Assign custom names to each section on side nav need to change it to match the Open API Specification
@@ -49,21 +47,23 @@ export class AppComponent implements AfterViewInit {
       if (sections.length > 2) sections[2].customName = 'DATA NOTIFICATIONS';
       if (sections.length > 3) sections[3].customName = 'DATA PROCESSING';
       if (sections.length > 4) sections[4].customName = 'DATA STORE';
-      if (sections.length > 5) sections[5].customName = 'USER & SUBSCRIPTION MANAGEMENT';
+      if (sections.length > 5)
+        sections[5].customName = 'USER & SUBSCRIPTION MANAGEMENT';
       // ... add more as needed
 
       this.apiSections = sections;
 
       SwaggerUI({
         dom_id: '#swagger-ui',
-        spec: data
+        spec: data,
       });
     });
   }
 
-  extractTagGroups(data: any): ApiSection[] {     // get tag  name based on from json file and display to list
+  extractTagGroups(data: any): ApiSection[] {
+    // get tag  name based on from json file and display to list
     const sections: ApiSection[] = [];
-    for (const group of data['x-tagGroups'] || []) {   
+    for (const group of data['x-tagGroups'] || []) {
       for (const tag of group.tags) {
         sections.push({ tag: tag, name: tag });
       }
@@ -71,18 +71,18 @@ export class AppComponent implements AfterViewInit {
     return sections;
   }
 
-  // Uncomment the code below for default Open API specification tags with Ctrl + / 
+  // Uncomment the code below for default Open API specification tags with Ctrl + /
 
   // extractTagGroups(data: any): ApiSection[] {
   //   const sections: ApiSection[] = [];
-  //   for (const tag of data.tags || []) {   
+  //   for (const tag of data.tags || []) {
   //     sections.push({ tag: tag.name, name: tag.description });
   //   }
   //   return sections;
   // }
-  
 
-  navigateToTag(tag: string, event: MouseEvent): void {  // navigation based on perations-tag-tag of swagger UI
+  navigateToTag(tag: string, event: MouseEvent): void {
+    // navigation based on perations-tag-tag of swagger UI
     event.preventDefault();
     event.stopPropagation(); // prevent the page from going to ttop when  click 2nd time
     this.selectedTag = tag;
@@ -95,7 +95,8 @@ export class AppComponent implements AfterViewInit {
     }, 300);
   }
 
-  navigateToModels(event: MouseEvent): void {  // navigate to schemas  sections
+  navigateToModels(event: MouseEvent): void {
+    // navigate to schemas  sections
     event.preventDefault();
     this.selectedTag = 'schemas';
     const modelsElement = document.querySelector('.models-control');

@@ -1,34 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>APISwaggerUi</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body className>
-  <app-root></app-root>
-  <script>
-    window.addEventListener('scroll', function() {
-      // Check if the viewport width is less than or equal to 768 pixels
-      if (window.innerWidth <= 768) {
-        var header = document.querySelector('.header-style');
-        var scrollPosition = window.scrollY || document.documentElement.scrollTop;
-  
-        var blurIntensity = Math.min(5, scrollPosition / 100); // Adjust for max blur
-        var gradient = scrollPosition > 0 ? 'linear-gradient(to top, rgba(255, 255, 255, 0.5), transparent)' : 'transparent';
-  
-        header.style.setProperty('--scroll-blur', `${blurIntensity}px`);
-        header.style.setProperty('--scroll-gradient', gradient);
-      } else {
-        // Reset styles when viewport is wider than 768px
-        var header = document.querySelector('.header-style');
-        header.style.setProperty('--scroll-blur', '0px');
-        header.style.setProperty('--scroll-gradient', 'transparent');
-      }
-    });
-  </script>
-  
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>APISwaggerUi</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body className>
+    <app-root></app-root>
+    <script>
+      window.addEventListener("scroll", function () {
+        // Check if the viewport width is less than or equal to 768 pixels
+        if (window.innerWidth <= 768) {
+          var header = document.querySelector(".header-style");
+          var scrollPosition =
+            window.scrollY || document.documentElement.scrollTop;
+
+          var blurIntensity = Math.min(5, scrollPosition / 100); // Adjust for max blur
+          var gradient =
+            scrollPosition > 0
+              ? "linear-gradient(to top, rgba(255, 255, 255, 0.5), transparent)"
+              : "transparent";
+
+          header.style.setProperty("--scroll-blur", `${blurIntensity}px`);
+          header.style.setProperty("--scroll-gradient", gradient);
+        } else {
+          // Reset styles when viewport is wider than 768px
+          var header = document.querySelector(".header-style");
+          header.style.setProperty("--scroll-blur", "0px");
+          header.style.setProperty("--scroll-gradient", "transparent");
+        }
+      });
+    </script>
+  </body>
 </html>

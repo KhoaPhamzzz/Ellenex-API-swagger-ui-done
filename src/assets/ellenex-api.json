@@ -23,37 +23,25 @@
   "x-tagGroups": [
     {
       "name": "Device Inventory",
-      "tags": [
-        "edi-v1"
-      ]
+      "tags": ["edi-v1"]
     },
     {
       "name": "Alerts & Notifications",
-      "tags": [
-        "eara-v1",
-        "edna-v1"
-      ]
+      "tags": ["eara-v1", "edna-v1"]
     },
     {
       "name": "Data Processing",
-      "tags": [
-        "edpa-v1",
-        "edsa-v1"
-      ]
+      "tags": ["edpa-v1", "edsa-v1"]
     },
     {
       "name": "User & Subscription Management",
-      "tags": [
-        "esma-v1"
-      ]
+      "tags": ["esma-v1"]
     }
   ],
   "paths": {
     "/users": {
       "get": {
-        "tags": [
-          "esma-v1"
-        ],
+        "tags": ["esma-v1"],
         "summary": "List all users",
         "operationId": "listUsers",
         "responses": {
@@ -80,9 +68,7 @@
         }
       },
       "post": {
-        "tags": [
-          "esma-v1"
-        ],
+        "tags": ["esma-v1"],
         "summary": "Create user using JSON",
         "operationId": "createUsers",
         "requestBody": {
@@ -121,9 +107,7 @@
     },
     "/users/{userId}": {
       "get": {
-        "tags": [
-          "esma-v1"
-        ],
+        "tags": ["esma-v1"],
         "summary": "Retrieve a specific user",
         "operationId": "getUserById",
         "parameters": [
@@ -161,9 +145,7 @@
         }
       },
       "put": {
-        "tags": [
-          "esma-v1"
-        ],
+        "tags": ["esma-v1"],
         "summary": "Update a specific user",
         "operationId": "updateUserById",
         "parameters": [
@@ -211,9 +193,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "esma-v1"
-        ],
+        "tags": ["esma-v1"],
         "summary": "Delete a specific user",
         "operationId": "deleteUserById",
         "parameters": [
@@ -246,9 +226,7 @@
     },
     "/subscriptions": {
       "get": {
-        "tags": [
-          "esma-v1"
-        ],
+        "tags": ["esma-v1"],
         "summary": "List all subscriptions",
         "operationId": "listSubscriptions",
         "responses": {
@@ -275,9 +253,7 @@
         }
       },
       "post": {
-        "tags": [
-          "esma-v1"
-        ],
+        "tags": ["esma-v1"],
         "summary": "Create subscription using JSON",
         "operationId": "createSubscription",
         "requestBody": {
@@ -316,9 +292,7 @@
     },
     "/subscriptions/{subscriptionId}": {
       "get": {
-        "tags": [
-          "esma-v1"
-        ],
+        "tags": ["esma-v1"],
         "summary": "Retrieve a specific user",
         "operationId": "getSubscriptionById",
         "parameters": [
@@ -356,9 +330,7 @@
         }
       },
       "put": {
-        "tags": [
-          "esma-v1"
-        ],
+        "tags": ["esma-v1"],
         "summary": "Update a specific subscription",
         "operationId": "updateSubscriptionById",
         "parameters": [
@@ -408,9 +380,7 @@
     },
     "/observations": {
       "post": {
-        "tags": [
-          "edsa-v1"
-        ],
+        "tags": ["edsa-v1"],
         "summary": "Create observation data point(s).",
         "operationId": "createObservation",
         "requestBody": {
@@ -476,9 +446,7 @@
     },
     "/observations/eql": {
       "post": {
-        "tags": [
-          "edsa-v1"
-        ],
+        "tags": ["edsa-v1"],
         "summary": "Query raw and aggregated data using EllenexQL.",
         "operationId": "eqlObservations",
         "requestBody": {
@@ -507,9 +475,7 @@
     },
     "/forecasts": {
       "post": {
-        "tags": [
-          "edsa-v1"
-        ],
+        "tags": ["edsa-v1"],
         "summary": "Create forecast data point(s).",
         "operationId": "createForecast",
         "requestBody": {
@@ -575,9 +541,7 @@
     },
     "/forecasts/eql": {
       "post": {
-        "tags": [
-          "edsa-v1"
-        ],
+        "tags": ["edsa-v1"],
         "summary": "Query raw and aggregated data using EllenexQL.",
         "operationId": "eqlForecasts",
         "requestBody": {
@@ -606,9 +570,7 @@
     },
     "/notifications": {
       "post": {
-        "tags": [
-          "edna-v1"
-        ],
+        "tags": ["edna-v1"],
         "summary": "Send a notification",
         "operationId": "createNotifications",
         "requestBody": {
@@ -647,9 +609,7 @@
     },
     "/templates": {
       "get": {
-        "tags": [
-          "edna-v1"
-        ],
+        "tags": ["edna-v1"],
         "summary": "List all templates",
         "operationId": "listTemplates",
         "responses": {
@@ -676,9 +636,7 @@
         }
       },
       "post": {
-        "tags": [
-          "edna-v1"
-        ],
+        "tags": ["edna-v1"],
         "summary": "Create a template",
         "operationId": "createTemplates",
         "requestBody": {
@@ -717,9 +675,7 @@
     },
     "/templates/{templateId}": {
       "get": {
-        "tags": [
-          "edna-v1"
-        ],
+        "tags": ["edna-v1"],
         "summary": "Retrieve a specific template",
         "operationId": "getTemplateById",
         "parameters": [
@@ -757,9 +713,7 @@
         }
       },
       "put": {
-        "tags": [
-          "edna-v1"
-        ],
+        "tags": ["edna-v1"],
         "summary": "Update a specific template",
         "operationId": "updateTemplateById",
         "parameters": [
@@ -807,9 +761,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "edna-v1"
-        ],
+        "tags": ["edna-v1"],
         "summary": "Delete a specific template",
         "operationId": "removeTemplateById",
         "parameters": [
@@ -842,9 +794,7 @@
     },
     "/alerts": {
       "get": {
-        "tags": [
-          "eara-v1"
-        ],
+        "tags": ["eara-v1"],
         "summary": "List all alerts",
         "operationId": "listAlerts",
         "parameters": [
@@ -883,9 +833,7 @@
         }
       },
       "post": {
-        "tags": [
-          "eara-v1"
-        ],
+        "tags": ["eara-v1"],
         "summary": "Create an alert",
         "operationId": "createAlerts",
         "requestBody": {
@@ -924,9 +872,7 @@
     },
     "/alerts/{alertId}": {
       "get": {
-        "tags": [
-          "eara-v1"
-        ],
+        "tags": ["eara-v1"],
         "summary": "Retrieve a specific alert",
         "operationId": "getAlertById",
         "parameters": [
@@ -964,9 +910,7 @@
         }
       },
       "put": {
-        "tags": [
-          "eara-v1"
-        ],
+        "tags": ["eara-v1"],
         "summary": "Update a specific alert",
         "operationId": "updateAlertById",
         "parameters": [
@@ -1014,9 +958,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "eara-v1"
-        ],
+        "tags": ["eara-v1"],
         "summary": "Delete a specific alert",
         "operationId": "removeAlertById",
         "parameters": [
@@ -1049,9 +991,7 @@
     },
     "/alerts/{alertId}/trigger/kapacitor": {
       "post": {
-        "tags": [
-          "eara-v1"
-        ],
+        "tags": ["eara-v1"],
         "summary": "Trigger an alert via a request sent from kapacitor",
         "operationId": "triggerAlertViaKapacitor",
         "parameters": [
@@ -1099,9 +1039,7 @@
     },
     "/devicespecs": {
       "post": {
-        "tags": [
-          "edpa-v1"
-        ],
+        "tags": ["edpa-v1"],
         "summary": "Create deviceSpec using JSON",
         "operationId": "createDeviceSpec",
         "requestBody": {
@@ -1140,9 +1078,7 @@
     },
     "/devicespecs/{deviceSpecId}": {
       "get": {
-        "tags": [
-          "edpa-v1"
-        ],
+        "tags": ["edpa-v1"],
         "summary": "Retrieve a specific deviceSpec",
         "operationId": "getDeviceSpecById",
         "parameters": [
@@ -1180,9 +1116,7 @@
         }
       },
       "put": {
-        "tags": [
-          "edpa-v1"
-        ],
+        "tags": ["edpa-v1"],
         "summary": "Update a specific deviceSpec",
         "operationId": "updateDeviceSpecById",
         "parameters": [
@@ -1230,9 +1164,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "edpa-v1"
-        ],
+        "tags": ["edpa-v1"],
         "summary": "Delete a specific deviceSpec",
         "operationId": "removeDeviceSpecById",
         "parameters": [
@@ -1265,9 +1197,7 @@
     },
     "/devices": {
       "get": {
-        "tags": [
-          "edi-v1"
-        ],
+        "tags": ["edi-v1"],
         "summary": "List all devices",
         "operationId": "listDevices",
         "parameters": [
@@ -1323,9 +1253,7 @@
         }
       },
       "post": {
-        "tags": [
-          "edi-v1"
-        ],
+        "tags": ["edi-v1"],
         "summary": "Create device(s) using JSON or CSV",
         "operationId": "createDevices",
         "requestBody": {
@@ -1391,9 +1319,7 @@
     },
     "/devices/{deviceId}": {
       "get": {
-        "tags": [
-          "edi-v1"
-        ],
+        "tags": ["edi-v1"],
         "summary": "Retrieve a specific device",
         "operationId": "getDeviceById",
         "parameters": [
@@ -1431,9 +1357,7 @@
         }
       },
       "put": {
-        "tags": [
-          "edi-v1"
-        ],
+        "tags": ["edi-v1"],
         "summary": "Update a specific device",
         "operationId": "updateDeviceById",
         "parameters": [
@@ -1481,9 +1405,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "edi-v1"
-        ],
+        "tags": ["edi-v1"],
         "summary": "Delete a specific device",
         "operationId": "removeDeviceById",
         "parameters": [
@@ -1516,9 +1438,7 @@
     },
     "/devicemodels": {
       "get": {
-        "tags": [
-          "edi-v1"
-        ],
+        "tags": ["edi-v1"],
         "summary": "List all device models",
         "operationId": "listDeviceModels",
         "parameters": [
@@ -1556,9 +1476,7 @@
         }
       },
       "post": {
-        "tags": [
-          "edi-v1"
-        ],
+        "tags": ["edi-v1"],
         "summary": "Create a device model",
         "operationId": "createDeviceModels",
         "requestBody": {
@@ -1597,9 +1515,7 @@
     },
     "/devicemodels/{deviceModelId}": {
       "get": {
-        "tags": [
-          "edi-v1"
-        ],
+        "tags": ["edi-v1"],
         "summary": "Retrieve a specific device model",
         "operationId": "getDeviceModelById",
         "parameters": [
@@ -1637,9 +1553,7 @@
         }
       },
       "put": {
-        "tags": [
-          "edi-v1"
-        ],
+        "tags": ["edi-v1"],
         "summary": "Update a specific device model",
         "operationId": "updateDeviceModelById",
         "parameters": [
@@ -1687,9 +1601,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "edi-v1"
-        ],
+        "tags": ["edi-v1"],
         "summary": "Delete a specific device model",
         "operationId": "removeDeviceModelById",
         "parameters": [
@@ -1736,9 +1648,7 @@
     },
     "schemas": {
       "Error": {
-        "required": [
-          "title"
-        ],
+        "required": ["title"],
         "properties": {
           "@type": {
             "type": "string",
@@ -1818,10 +1728,7 @@
           "alertLevel": {
             "type": "string",
             "description": "Criticality level of the alert",
-            "enum": [
-              "WARNING",
-              "CRITICAL"
-            ]
+            "enum": ["WARNING", "CRITICAL"]
           },
           "renotifyInterval": {
             "type": "number",
@@ -2471,9 +2378,7 @@
           },
           "dataType": {
             "type": "string",
-            "enum": [
-              "Number"
-            ],
+            "enum": ["Number"],
             "example": "Number"
           },
           "unitCode": {
@@ -2492,10 +2397,7 @@
       },
       "KeyValuePair": {
         "type": "object",
-        "required": [
-          "key",
-          "value"
-        ],
+        "required": ["key", "value"],
         "properties": {
           "key": {
             "type": "string"
@@ -2718,11 +2620,7 @@
           },
           "kind": {
             "type": "string",
-            "enum": [
-              "TEMPLATE",
-              "SMS",
-              "EMAIL"
-            ]
+            "enum": ["TEMPLATE", "SMS", "EMAIL"]
           },
           "shortMessage": {
             "type": "string",
@@ -2754,10 +2652,7 @@
         "properties": {
           "kind": {
             "type": "string",
-            "enum": [
-              "SMS",
-              "EMAIL"
-            ]
+            "enum": ["SMS", "EMAIL"]
           },
           "defaultMessage": {
             "type": "string",
@@ -2917,10 +2812,7 @@
           },
           "kind": {
             "type": "string",
-            "enum": [
-              "Aggregation",
-              "Raw"
-            ]
+            "enum": ["Aggregation", "Raw"]
           },
           "granularity": {
             "description": "duration of aggregation over time, which is either number of seconds or string representation of a time duration",
@@ -2949,11 +2841,7 @@
             "items": {
               "type": "string"
             },
-            "example": [
-              "resultTime",
-              "device",
-              "pressure"
-            ],
+            "example": ["resultTime", "device", "pressure"],
             "description": "determines which data to fetch and how data gets bucketed across time dimension"
           },
           "aggregations": {
@@ -2982,10 +2870,7 @@
           },
           "kind": {
             "type": "string",
-            "enum": [
-              "and",
-              "or"
-            ],
+            "enum": ["and", "or"],
             "example": "and"
           },
           "fields": {
@@ -3037,13 +2922,7 @@
           },
           "kind": {
             "type": "string",
-            "enum": [
-              "eq",
-              "gt",
-              "gte",
-              "lt",
-              "lte"
-            ],
+            "enum": ["eq", "gt", "gte", "lt", "lte"],
             "example": "eq"
           },
           "dimension": {
@@ -3081,11 +2960,7 @@
             "items": {
               "type": "string"
             },
-            "example": [
-              "resultTime",
-              "device",
-              "max_pressure"
-            ]
+            "example": ["resultTime", "device", "max_pressure"]
           },
           "values": {
             "type": "array",
@@ -3106,24 +2981,14 @@
               }
             },
             "example": [
-              [
-                "2017-01-01T00:00:00.000Z",
-                "/v1/edi/devices/uuid1",
-                1300
-              ],
-              [
-                "2017-01-01T00:00:00.000Z",
-                "/v1/edi/devices/uuid2",
-                1400
-              ]
+              ["2017-01-01T00:00:00.000Z", "/v1/edi/devices/uuid1", 1300],
+              ["2017-01-01T00:00:00.000Z", "/v1/edi/devices/uuid2", 1400]
             ]
           }
         }
       },
       "User": {
-        "required": [
-          "@id"
-        ],
+        "required": ["@id"],
         "properties": {
           "@context": {
             "type": "string",
@@ -3151,24 +3016,16 @@
           },
           "hasAccessTo": {
             "type": "array",
-            "example": [
-              "/subscriptions/uuid1",
-              "/subscriptions/uuid2"
-            ]
+            "example": ["/subscriptions/uuid1", "/subscriptions/uuid2"]
           },
           "notificationChannels": {
             "type": "array",
-            "example": [
-              "sms",
-              "email"
-            ]
+            "example": ["sms", "email"]
           }
         }
       },
       "Users": {
-        "required": [
-          "@id"
-        ],
+        "required": ["@id"],
         "properties": {
           "@type": {
             "type": "string",
@@ -3195,9 +3052,7 @@
         }
       },
       "PartialUserView": {
-        "required": [
-          "@id"
-        ],
+        "required": ["@id"],
         "properties": {
           "@type": {
             "type": "string",
@@ -3226,9 +3081,7 @@
         }
       },
       "Subscription": {
-        "required": [
-          "@id"
-        ],
+        "required": ["@id"],
         "properties": {
           "@context": {
             "type": "string",
@@ -3253,9 +3106,7 @@
         }
       },
       "Subscriptions": {
-        "required": [
-          "@id"
-        ],
+        "required": ["@id"],
         "properties": {
           "@context": {
             "type": "string",
@@ -3286,9 +3137,7 @@
         }
       },
       "PartialSubscriptionView": {
-        "required": [
-          "@id"
-        ],
+        "required": ["@id"],
         "properties": {
           "@type": {
             "type": "string",
