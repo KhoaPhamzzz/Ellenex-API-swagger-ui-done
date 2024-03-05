@@ -70,6 +70,16 @@ export class AppComponent implements AfterViewInit {
     }
     return sections;
   }
+
+  // Uncomment the code below for default Open API specification tags with Ctrl + / 
+
+  // extractTagGroups(data: any): ApiSection[] {
+  //   const sections: ApiSection[] = [];
+  //   for (const tag of data.tags || []) {   
+  //     sections.push({ tag: tag.name, name: tag.description });
+  //   }
+  //   return sections;
+  // }
   
 
   navigateToTag(tag: string, event: MouseEvent): void {  // navigation based on perations-tag-tag of swagger UI
