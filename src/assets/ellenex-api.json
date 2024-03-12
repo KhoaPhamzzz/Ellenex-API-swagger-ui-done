@@ -53,22 +53,22 @@
             "name": "x-api-key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-api-key}}"
+              "example": "x-api-key"
             }
           },
           {
             "name": "x-lnx-token",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-lnx-token}}"
+              "example": "x-lnx-token"
             }
           }
         ],
@@ -174,22 +174,22 @@
             "name": "x-api-key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-api-key}}"
+              "example": "x-api-key"
             }
           },
           {
             "name": "x-lnx-token",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-lnx-token}}"
+              "example": "x-lnx-token"
             }
           }
         ],
@@ -229,18 +229,6 @@
         "responses": {
           "201": {
             "description": "Created",
-            "headers": {
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "337"
-                  }
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -295,28 +283,28 @@
             "name": "x-api-key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-api-key}}"
+              "example": "x-api-key"
             }
           },
           {
             "name": "x-lnx-token",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-lnx-token}}"
+              "example": "x-lnx-token"
             }
           },
           {
             "name": "id",
             "in": "path",
-            "description": "",
+            "description": "Id of User to view details",
             "required": true,
             "style": "simple",
             "schema": {
@@ -327,18 +315,6 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "404"
-                  }
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -389,28 +365,28 @@
             "name": "x-api-key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-api-key}}"
+              "example": "x-api-key"
             }
           },
           {
             "name": "x-lnx-token",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-lnx-token}}"
+              "example": "x-lnx-token"
             }
           },
           {
             "name": "id",
             "in": "path",
-            "description": "",
+            "description": "Id of User to update",
             "required": true,
             "style": "simple",
             "schema": {
@@ -446,18 +422,6 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "405"
-                  }
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -508,28 +472,28 @@
             "name": "x-api-key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-api-key}}"
+              "example": "x-api-key"
             }
           },
           {
             "name": "x-lnx-token",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-lnx-token}}"
+              "example": "x-lnx-token"
             }
           },
           {
             "name": "id",
             "in": "path",
-            "description": "",
+            "description": "Id of User to delete",
             "required": true,
             "style": "simple",
             "schema": {
@@ -540,18 +504,6 @@
         "responses": {
           "200": {
             "description": "OK",
-            "headers": {
-              "Content-Length": {
-                "content": {
-                  "text/plain": {
-                    "schema": {
-                      "type": "string"
-                    },
-                    "example": "79"
-                  }
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
@@ -587,19 +539,19 @@
           {
             "name": "webhook_id",
             "in": "query",
-            "description": "",
+            "description": "Required user's wehook-id to view trigger details",
             "required": true,
             "style": "form",
             "explode": true,
             "schema": {
               "type": "string",
-              "example": "{{webhook_id}}"
+              "example": "webhook_id"
             }
           },
           {
             "name": "order",
             "in": "query",
-            "description": "",
+            "description": "View order from ASC or DESC",
             "required": false,
             "style": "form",
             "explode": true,
@@ -636,22 +588,22 @@
             "name": "x-api-key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-api-key}}"
+              "example": "x-api-key"
             }
           },
           {
             "name": "x-lnx-token",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-lnx-token}}"
+              "example": "x-lnx-token"
             }
           }
         ],
@@ -761,28 +713,28 @@
             "name": "x-api-key",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-api-key}}"
+              "example": "x-api-key"
             }
           },
           {
             "name": "x-lnx-token",
             "in": "header",
             "description": "",
-            "required": true,
+            "required": false,
             "style": "simple",
             "schema": {
               "type": "string",
-              "example": "{{x-lnx-token}}"
+              "example": "x-lnx-token"
             }
           },
           {
             "name": "trigger_id",
             "in": "path",
-            "description": "",
+            "description": "User trigger_id to view details",
             "required": true,
             "style": "simple",
             "schema": {
@@ -2521,6 +2473,9 @@
   "security": [
     {
       "ApiKeyAuth": []
+    },
+    {
+      "LnxTokenAuth": []
     }
   ],
   "components": {
@@ -2529,6 +2484,12 @@
         "type": "apiKey",
         "in": "header",
         "name": "x-api-key"
+      },
+      "LnxTokenAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-lnx-token",
+        "description": "Token-based authentication with 'x-lnx-token'"
       }
     },
     "schemas": {
