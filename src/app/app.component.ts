@@ -49,6 +49,7 @@ export class AppComponent implements AfterViewInit {
       if (sections.length > 4) sections[4].customName = 'DATA STORE';
       if (sections.length > 5)
         sections[5].customName = 'USER & SUBSCRIPTION MANAGEMENT';
+      if (sections.length > 6) sections[6].customName = 'WEBHOOKS';
       // ... add more as needed
 
       this.apiSections = sections;

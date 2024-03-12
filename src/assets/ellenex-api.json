@@ -36,9 +36,1757 @@
     {
       "name": "User & Subscription Management",
       "tags": ["esma-v1"]
+    },
+    {
+      "name": "Webhook-API",
+      "tags": ["Webhook-API"]
     }
   ],
   "paths": {
+    "/ewa/webhooks": {
+      "get": {
+        "tags": ["Webhook-API"],
+        "summary": "Get Webhook",
+        "operationId": "GetWebhook",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-api-key}}"
+            }
+          },
+          {
+            "name": "x-lnx-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-lnx-token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Transfer-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "chunked"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Accept-Encoding"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 08 Mar 2024 00:06:02 GMT"
+                  }
+                }
+              },
+              "x-amzn-RequestId": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "fa1bb143-8033-4b9d-a915-dc5e0bbf2117"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "x-amz-apigw-id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "USJwpHzSIAMElnw="
+                  }
+                }
+              },
+              "X-Amzn-Trace-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Root=1-65ea566a-60773b280133c6fb3d9a2d34;Parent=1d455993bb2009f9;Sampled=0;lineage=87e40257:0|81aa486b:0"
+                  }
+                }
+              },
+              "Access-Control-Allow-Credentials": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "true"
+                  }
+                }
+              },
+              "Via": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1.1 8974fd4c24f406080d11bb1a49a65792.cloudfront.net (CloudFront), 1.1 af9d66efe7802df1efbc8106c86a13e6.cloudfront.net (CloudFront)"
+                  }
+                }
+              },
+              "X-Amz-Cf-Pop": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "SFO5-C1"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "X-Cache": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Miss from cloudfront"
+                  }
+                }
+              },
+              "X-Amz-Cf-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "0OV9HhnMgU2ONNExyy0Dow5kRo4Ph7YPzoUu4OCKMdOtvxzipLUtVw=="
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetWebhook"
+                    },
+                    {
+                      "example": {
+                        "items": [
+                          {
+                            "id": "80753835-6d3f-47a4-a3c1-2e3a047b135e",
+                            "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                            "url": "https://658607a55dbb405c8068248e573143ce.api.mockbin.io",
+                            "headers": null,
+                            "retry_count": 3,
+                            "is_suppressed": false,
+                            "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                            "created_at": "2024-03-06T15:44:24.501367288Z"
+                          },
+                          {
+                            "id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+                            "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                            "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+                            "headers": null,
+                            "retry_count": 1,
+                            "is_suppressed": true,
+                            "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                            "created_at": "2024-03-06T16:49:21.839990655Z",
+                            "updated_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                            "updated_at": "2024-03-07T06:57:53.972234214Z"
+                          },
+                          {
+                            "id": "1dc3d2cb-40c7-4323-986f-153c79341a30",
+                            "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                            "url": "https://5a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+                            "headers": null,
+                            "retry_count": 3,
+                            "is_suppressed": false,
+                            "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                            "created_at": "2024-03-08T00:04:29.747115547Z"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "items": [
+                    {
+                      "id": "80753835-6d3f-47a4-a3c1-2e3a047b135e",
+                      "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                      "url": "https://658607a55dbb405c8068248e573143ce.api.mockbin.io",
+                      "headers": null,
+                      "retry_count": 3,
+                      "is_suppressed": false,
+                      "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                      "created_at": "2024-03-06T15:44:24.501367288Z"
+                    },
+                    {
+                      "id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+                      "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                      "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+                      "headers": null,
+                      "retry_count": 1,
+                      "is_suppressed": true,
+                      "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                      "created_at": "2024-03-06T16:49:21.839990655Z",
+                      "updated_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                      "updated_at": "2024-03-07T06:57:53.972234214Z"
+                    },
+                    {
+                      "id": "1dc3d2cb-40c7-4323-986f-153c79341a30",
+                      "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                      "url": "https://5a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+                      "headers": null,
+                      "retry_count": 3,
+                      "is_suppressed": false,
+                      "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                      "created_at": "2024-03-08T00:04:29.747115547Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": ["Webhook-API"],
+        "summary": "Create Webhook",
+        "operationId": "CreateWebhook",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-api-key}}"
+            }
+          },
+          {
+            "name": "x-lnx-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-lnx-token}}"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateWebhookRequest"
+                  },
+                  {
+                    "example": {
+                      "url": "https://2a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+                      "headers": {
+                        "test": "1",
+                        "test2": "2"
+                      },
+                      "retry_count": 3
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "url": "https://2a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+                "headers": {
+                  "test": "1",
+                  "test2": "2"
+                },
+                "retry_count": 3
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "337"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 08 Mar 2024 02:29:56 GMT"
+                  }
+                }
+              },
+              "x-amzn-RequestId": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1d1f2ac9-115e-4e6a-a551-6bbc88ddef10"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "x-amz-apigw-id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "USe1wH_OIAMEgvw="
+                  }
+                }
+              },
+              "X-Amzn-Trace-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Root=1-65ea7824-02232cad12161afb789b605e;Parent=5bad5c439efa9489;Sampled=0;lineage=87e40257:0|81aa486b:0"
+                  }
+                }
+              },
+              "Access-Control-Allow-Credentials": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "true"
+                  }
+                }
+              },
+              "Via": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1.1 063a9ddbb93cf698306df937132cd318.cloudfront.net (CloudFront), 1.1 6785379936d15b44a779e5f13a6567de.cloudfront.net (CloudFront)"
+                  }
+                }
+              },
+              "X-Amz-Cf-Pop": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "SFO5-C1"
+                  }
+                }
+              },
+              "X-Cache": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Miss from cloudfront"
+                  }
+                }
+              },
+              "X-Amz-Cf-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "MTPush5-T-qAKGLeu2j7V5XvUgaiBDEOjxtcpYQj4CnSkBya4tBEdA=="
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/CreateWebhook"
+                    },
+                    {
+                      "example": {
+                        "id": "a60886b2-808d-4dda-bcde-7d8239720739",
+                        "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                        "url": "https://2a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+                        "headers": {
+                          "test": "1",
+                          "test2": "2"
+                        },
+                        "retry_count": 3,
+                        "is_suppressed": false,
+                        "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                        "created_at": "2024-03-08T02:29:56.65214508Z"
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "id": "a60886b2-808d-4dda-bcde-7d8239720739",
+                  "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                  "url": "https://2a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+                  "headers": {
+                    "test": "1",
+                    "test2": "2"
+                  },
+                  "retry_count": 3,
+                  "is_suppressed": false,
+                  "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                  "created_at": "2024-03-08T02:29:56.65214508Z"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ewa/webhooks/{id}": {
+      "get": {
+        "tags": ["Webhook-API"],
+        "summary": "Get Webhook Details",
+        "operationId": "GetWebhookDetails",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-api-key}}"
+            }
+          },
+          {
+            "name": "x-lnx-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-lnx-token}}"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "404"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 08 Mar 2024 01:15:00 GMT"
+                  }
+                }
+              },
+              "x-amzn-RequestId": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "91eebd1a-9258-4e3b-9af0-7839ed6a882d"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "x-amz-apigw-id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "UST3RF6yoAMEbAA="
+                  }
+                }
+              },
+              "X-Amzn-Trace-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Root=1-65ea6694-18f0364529b89be6175cd08b;Parent=608f05686d041d5e;Sampled=0;lineage=87e40257:0|81aa486b:0"
+                  }
+                }
+              },
+              "Access-Control-Allow-Credentials": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "true"
+                  }
+                }
+              },
+              "Via": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1.1 8974fd4c24f406080d11bb1a49a65792.cloudfront.net (CloudFront), 1.1 7ba3caf71ae7a52dd411d1a543e80cd8.cloudfront.net (CloudFront)"
+                  }
+                }
+              },
+              "X-Amz-Cf-Pop": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "SFO5-C1"
+                  }
+                }
+              },
+              "X-Cache": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Miss from cloudfront"
+                  }
+                }
+              },
+              "X-Amz-Cf-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "UjUFEkiAlLggEU_7O02FVKPpi1J-evVdcZmKMiQA30DoABTvXTjTWw=="
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetWebhookDetails"
+                    },
+                    {
+                      "example": {
+                        "id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+                        "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                        "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+                        "headers": null,
+                        "retry_count": 1,
+                        "is_suppressed": true,
+                        "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                        "created_at": "2024-03-06T16:49:21.839990655Z",
+                        "updated_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                        "updated_at": "2024-03-07T06:57:53.972234214Z"
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+                  "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                  "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+                  "headers": null,
+                  "retry_count": 1,
+                  "is_suppressed": true,
+                  "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                  "created_at": "2024-03-06T16:49:21.839990655Z",
+                  "updated_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                  "updated_at": "2024-03-07T06:57:53.972234214Z"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": ["Webhook-API"],
+        "summary": "Update Webhook",
+        "operationId": "UpdateWebhook",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-api-key}}"
+            }
+          },
+          {
+            "name": "x-lnx-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-lnx-token}}"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UpdateWebhookRequest"
+                  },
+                  {
+                    "example": {
+                      "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+                      "retry_count": 3
+                    }
+                  }
+                ]
+              },
+              "example": {
+                "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+                "retry_count": 3
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "405"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 08 Mar 2024 03:03:27 GMT"
+                  }
+                }
+              },
+              "x-amzn-RequestId": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "79a080f7-1335-4e4f-96eb-f0261eb69790"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "x-amz-apigw-id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "USjv4Fu2oAMEZfQ="
+                  }
+                }
+              },
+              "X-Amzn-Trace-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Root=1-65ea7ffe-3fa868b154f8d8297615bf29;Parent=6e35b4e9cfbb8027;Sampled=0;lineage=87e40257:0|81aa486b:0"
+                  }
+                }
+              },
+              "Access-Control-Allow-Credentials": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "true"
+                  }
+                }
+              },
+              "Via": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1.1 b37bef2041652ba1d4a26e5e191fdc70.cloudfront.net (CloudFront), 1.1 6785379936d15b44a779e5f13a6567de.cloudfront.net (CloudFront)"
+                  }
+                }
+              },
+              "X-Amz-Cf-Pop": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "SFO5-C1"
+                  }
+                }
+              },
+              "X-Cache": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Miss from cloudfront"
+                  }
+                }
+              },
+              "X-Amz-Cf-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Ld5jRYTd0cKPuEYh5JZi3Pm6G1SgMpBnH3pWOBKafOT14yp6XegfTg=="
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/UpdateWebhook"
+                    },
+                    {
+                      "example": {
+                        "id": "9cfc68b9-e216-4629-a154-053e4f4f55b7",
+                        "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                        "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+                        "headers": null,
+                        "retry_count": 3,
+                        "is_suppressed": false,
+                        "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                        "created_at": "2024-03-08T02:37:05.307226951Z",
+                        "updated_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                        "updated_at": "2024-03-08T03:03:27.021188864Z"
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "id": "9cfc68b9-e216-4629-a154-053e4f4f55b7",
+                  "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                  "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+                  "headers": null,
+                  "retry_count": 3,
+                  "is_suppressed": false,
+                  "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                  "created_at": "2024-03-08T02:37:05.307226951Z",
+                  "updated_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                  "updated_at": "2024-03-08T03:03:27.021188864Z"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": ["Webhook-API"],
+        "summary": "Delete Webhook",
+        "operationId": "DeleteWebhook",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-api-key}}"
+            }
+          },
+          {
+            "name": "x-lnx-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-lnx-token}}"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Content-Length": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "79"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 08 Mar 2024 02:36:12 GMT"
+                  }
+                }
+              },
+              "x-amzn-RequestId": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "67e33778-fa7d-4e30-834b-6d4324f655c7"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "x-amz-apigw-id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "USfwdHHUoAMEjaw="
+                  }
+                }
+              },
+              "X-Amzn-Trace-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Root=1-65ea799c-774cb89f509c560c09238319;Parent=4d5e9bd6cd53d611;Sampled=0;lineage=87e40257:0|81aa486b:0"
+                  }
+                }
+              },
+              "Access-Control-Allow-Credentials": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "true"
+                  }
+                }
+              },
+              "Via": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1.1 57bad7de768de965f7b4e76ba1ed4d64.cloudfront.net (CloudFront), 1.1 6785379936d15b44a779e5f13a6567de.cloudfront.net (CloudFront)"
+                  }
+                }
+              },
+              "X-Amz-Cf-Pop": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "SFO5-C1"
+                  }
+                }
+              },
+              "X-Cache": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Miss from cloudfront"
+                  }
+                }
+              },
+              "X-Amz-Cf-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "L32UuFAgVmEd_UHq7TUNlqPkwRkcUa7AwU1nBXvvYYvJGYMgC2E3ZA=="
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/DeleteWebhook"
+                    },
+                    {
+                      "example": {
+                        "message": "Deleted successfully",
+                        "timestamp": "2024-03-08T02:36:12.391133282Z"
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "message": "Deleted successfully",
+                  "timestamp": "2024-03-08T02:36:12.391133282Z"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ewa/trigger": {
+      "get": {
+        "tags": ["Webhook-API"],
+        "summary": "Get Trigger",
+        "operationId": "GetTrigger",
+        "parameters": [
+          {
+            "name": "webhook_id",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "{{webhook_id}}"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "ASC"
+            }
+          },
+          {
+            "name": "from_date",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "2024-03-06T17:24:26.215286045Z"
+            }
+          },
+          {
+            "name": "to_date",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "2024-03-08T02:54:25.847477035Z"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-api-key}}"
+            }
+          },
+          {
+            "name": "x-lnx-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-lnx-token}}"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Transfer-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "chunked"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Accept-Encoding"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 08 Mar 2024 02:32:26 GMT"
+                  }
+                }
+              },
+              "x-amzn-RequestId": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "146f60d0-b579-4d5d-abd8-ad92edb432c0"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "x-amz-apigw-id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "USfM6EL2oAMEsyg="
+                  }
+                }
+              },
+              "X-Amzn-Trace-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Root=1-65ea78b8-31824b4122450d690891557b;Parent=4c2deac9110d277a;Sampled=0;lineage=87e40257:0|9c617650:0"
+                  }
+                }
+              },
+              "Access-Control-Allow-Credentials": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "true"
+                  }
+                }
+              },
+              "Via": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1.1 85331abd84b5669394785900a34f7b14.cloudfront.net (CloudFront), 1.1 6785379936d15b44a779e5f13a6567de.cloudfront.net (CloudFront)"
+                  }
+                }
+              },
+              "X-Amz-Cf-Pop": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "SFO5-C1"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "X-Cache": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Miss from cloudfront"
+                  }
+                }
+              },
+              "X-Amz-Cf-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "ptTXztv_3z3bO0kkEDgTsHVMNh93xDD0BqyH48IljcYdgNM8ym0nKg=="
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetTrigger"
+                    },
+                    {
+                      "example": {
+                        "items": [
+                          {
+                            "id": "8093d973-0726-4f67-9361-d23c10853cfb",
+                            "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                            "webhook_id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+                            "status": "FAILED",
+                            "retries": 4,
+                            "created_by": "SYSTEM_SNS",
+                            "created_at": "2024-03-06T17:19:24.554530788Z",
+                            "update_by": "SYSTEM_SNS",
+                            "updated_at": "2024-03-06T17:29:27.025202084Z"
+                          },
+                          {
+                            "id": "fa369c7a-b8a8-4f7a-a5d7-f293ab988cd9",
+                            "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                            "webhook_id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+                            "status": "FAILED",
+                            "retries": 4,
+                            "created_by": "SYSTEM_SNS",
+                            "created_at": "2024-03-06T17:19:15.785483112Z",
+                            "update_by": "SYSTEM_SNS",
+                            "updated_at": "2024-03-06T17:29:27.026863171Z"
+                          },
+                          {
+                            "id": "a1815f1e-4206-4d56-b788-a06a1f9ca6d7",
+                            "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                            "webhook_id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+                            "status": "FAILED",
+                            "retries": 4,
+                            "created_by": "SYSTEM_SNS",
+                            "created_at": "2024-03-06T17:18:45.647524635Z",
+                            "update_by": "SYSTEM_SNS",
+                            "updated_at": "2024-03-06T17:29:26.801804923Z"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "items": [
+                    {
+                      "id": "8093d973-0726-4f67-9361-d23c10853cfb",
+                      "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                      "webhook_id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+                      "status": "FAILED",
+                      "retries": 4,
+                      "created_by": "SYSTEM_SNS",
+                      "created_at": "2024-03-06T17:19:24.554530788Z",
+                      "update_by": "SYSTEM_SNS",
+                      "updated_at": "2024-03-06T17:29:27.025202084Z"
+                    },
+                    {
+                      "id": "fa369c7a-b8a8-4f7a-a5d7-f293ab988cd9",
+                      "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                      "webhook_id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+                      "status": "FAILED",
+                      "retries": 4,
+                      "created_by": "SYSTEM_SNS",
+                      "created_at": "2024-03-06T17:19:15.785483112Z",
+                      "update_by": "SYSTEM_SNS",
+                      "updated_at": "2024-03-06T17:29:27.026863171Z"
+                    },
+                    {
+                      "id": "a1815f1e-4206-4d56-b788-a06a1f9ca6d7",
+                      "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                      "webhook_id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+                      "status": "FAILED",
+                      "retries": 4,
+                      "created_by": "SYSTEM_SNS",
+                      "created_at": "2024-03-06T17:18:45.647524635Z",
+                      "update_by": "SYSTEM_SNS",
+                      "updated_at": "2024-03-06T17:29:26.801804923Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ewa/trigger/{trigger_id}": {
+      "get": {
+        "tags": ["Webhook-API"],
+        "summary": "Get Trigger Details",
+        "operationId": "GetTriggerDetails",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-api-key}}"
+            }
+          },
+          {
+            "name": "x-lnx-token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "{{x-lnx-token}}"
+            }
+          },
+          {
+            "name": "trigger_id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Transfer-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "chunked"
+                  }
+                }
+              },
+              "Connection": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "keep-alive"
+                  }
+                }
+              },
+              "Vary": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Accept-Encoding"
+                  }
+                }
+              },
+              "Date": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Fri, 08 Mar 2024 05:36:18 GMT"
+                  }
+                }
+              },
+              "x-amzn-RequestId": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "af508762-e6be-4e6d-b567-1842efbf891c"
+                  }
+                }
+              },
+              "Access-Control-Allow-Origin": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "*"
+                  }
+                }
+              },
+              "x-amz-apigw-id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "US6I3GgvIAMEm2w="
+                  }
+                }
+              },
+              "X-Amzn-Trace-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Root=1-65eaa3d2-1d91b1b641507f7321ce5bbe;Parent=48a59eb69fdccd94;Sampled=0;lineage=87e40257:0|9c617650:0"
+                  }
+                }
+              },
+              "Access-Control-Allow-Credentials": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "true"
+                  }
+                }
+              },
+              "Via": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "1.1 05aec04162b0fed6e9762cd1edd66a72.cloudfront.net (CloudFront), 1.1 457f6aac6043da8b82d532af40ff19c2.cloudfront.net (CloudFront)"
+                  }
+                }
+              },
+              "X-Amz-Cf-Pop": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "SFO5-C1"
+                  }
+                }
+              },
+              "Content-Encoding": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "gzip"
+                  }
+                }
+              },
+              "X-Cache": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "Miss from cloudfront"
+                  }
+                }
+              },
+              "X-Amz-Cf-Id": {
+                "content": {
+                  "text/plain": {
+                    "schema": {
+                      "type": "string"
+                    },
+                    "example": "O6VCj4YuAL5Ub_cK5epG2u_Uuzk8ygUkkYq2Qnhpivz1fZz0a7B8Pw=="
+                  }
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetTriggerDetails"
+                    },
+                    {
+                      "example": {
+                        "id": "0da811e7-e1ce-4787-8239-ebf699196570",
+                        "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                        "webhook_id": "9cfc68b9-e216-4629-a154-053e4f4f55b7",
+                        "webhook": {
+                          "id": "9cfc68b9-e216-4629-a154-053e4f4f55b7",
+                          "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                          "url": "https://2a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+                          "headers": null,
+                          "retry_count": 3,
+                          "is_suppressed": false,
+                          "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                          "created_at": "2024-03-08T02:37:05.307226951Z"
+                        },
+                        "status": "FAILED",
+                        "retries": 4,
+                        "trigger_logs": [
+                          {
+                            "response_body": "{\n  \"type\": \"https://httpproblems.com/http-status/400\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"instance\": \"/2a2c11x0-faed-4f62-80da-b41862019d06\",\n  \"trace\": {\n    \"timestamp\": \"2024-03-08T02:38:45.775Z\",\n    \"requestId\": \"13fea9c6-77a0-4a66-93ca-25e23ba28ac4\",\n    \"buildId\": \"fb9c10b8-f38c-4e4a-b370-97cfa502edb9\",\n    \"rayId\": \"860f736ef9d83adb\"\n  }\n}",
+                            "status_code": 400
+                          },
+                          {
+                            "response_body": "{\n  \"type\": \"https://httpproblems.com/http-status/400\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"instance\": \"/2a2c11x0-faed-4f62-80da-b41862019d06\",\n  \"trace\": {\n    \"timestamp\": \"2024-03-08T02:39:25.658Z\",\n    \"requestId\": \"59aafc77-888a-444b-971b-57c3b345b297\",\n    \"buildId\": \"fb9c10b8-f38c-4e4a-b370-97cfa502edb9\",\n    \"rayId\": \"860f7468e87d3b59\"\n  }\n}",
+                            "status_code": 400
+                          },
+                          {
+                            "response_body": "{\n  \"type\": \"https://httpproblems.com/http-status/400\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"instance\": \"/2a2c11x0-faed-4f62-80da-b41862019d06\",\n  \"trace\": {\n    \"timestamp\": \"2024-03-08T02:44:25.662Z\",\n    \"requestId\": \"a33421fa-271a-4eb5-9f47-dfa063139a43\",\n    \"buildId\": \"fb9c10b8-f38c-4e4a-b370-97cfa502edb9\",\n    \"rayId\": \"860f7bbac83a28a4\"\n  }\n}",
+                            "status_code": 400
+                          },
+                          {
+                            "error": "Maximum number of retries exceeded"
+                          }
+                        ],
+                        "body": [
+                          {
+                            "DeviceId": "6d832f32-5975-4a70-bb74-c45c2571be58",
+                            "DeviceSerial": "70B3D5CD04000009",
+                            "Parameters": [
+                              {
+                                "level": 0.64
+                              },
+                              {
+                                "temperature": 23.62
+                              },
+                              {
+                                "chargelevel": 3.52
+                              }
+                            ],
+                            "Timestamp": "2024-03-08T02:38:43.256999969Z"
+                          }
+                        ],
+                        "created_by": "SYSTEM_SNS",
+                        "created_at": "2024-03-08T02:38:45.538360739Z",
+                        "update_by": "SYSTEM_SNS",
+                        "updated_at": "2024-03-08T02:49:25.600135755Z"
+                      }
+                    }
+                  ]
+                },
+                "example": {
+                  "id": "0da811e7-e1ce-4787-8239-ebf699196570",
+                  "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                  "webhook_id": "9cfc68b9-e216-4629-a154-053e4f4f55b7",
+                  "webhook": {
+                    "id": "9cfc68b9-e216-4629-a154-053e4f4f55b7",
+                    "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+                    "url": "https://2a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+                    "headers": null,
+                    "retry_count": 3,
+                    "is_suppressed": false,
+                    "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+                    "created_at": "2024-03-08T02:37:05.307226951Z"
+                  },
+                  "status": "FAILED",
+                  "retries": 4,
+                  "trigger_logs": [
+                    {
+                      "response_body": "{\n  \"type\": \"https://httpproblems.com/http-status/400\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"instance\": \"/2a2c11x0-faed-4f62-80da-b41862019d06\",\n  \"trace\": {\n    \"timestamp\": \"2024-03-08T02:38:45.775Z\",\n    \"requestId\": \"13fea9c6-77a0-4a66-93ca-25e23ba28ac4\",\n    \"buildId\": \"fb9c10b8-f38c-4e4a-b370-97cfa502edb9\",\n    \"rayId\": \"860f736ef9d83adb\"\n  }\n}",
+                      "status_code": 400
+                    },
+                    {
+                      "response_body": "{\n  \"type\": \"https://httpproblems.com/http-status/400\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"instance\": \"/2a2c11x0-faed-4f62-80da-b41862019d06\",\n  \"trace\": {\n    \"timestamp\": \"2024-03-08T02:39:25.658Z\",\n    \"requestId\": \"59aafc77-888a-444b-971b-57c3b345b297\",\n    \"buildId\": \"fb9c10b8-f38c-4e4a-b370-97cfa502edb9\",\n    \"rayId\": \"860f7468e87d3b59\"\n  }\n}",
+                      "status_code": 400
+                    },
+                    {
+                      "response_body": "{\n  \"type\": \"https://httpproblems.com/http-status/400\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"instance\": \"/2a2c11x0-faed-4f62-80da-b41862019d06\",\n  \"trace\": {\n    \"timestamp\": \"2024-03-08T02:44:25.662Z\",\n    \"requestId\": \"a33421fa-271a-4eb5-9f47-dfa063139a43\",\n    \"buildId\": \"fb9c10b8-f38c-4e4a-b370-97cfa502edb9\",\n    \"rayId\": \"860f7bbac83a28a4\"\n  }\n}",
+                      "status_code": 400
+                    },
+                    {
+                      "error": "Maximum number of retries exceeded"
+                    }
+                  ],
+                  "body": [
+                    {
+                      "DeviceId": "6d832f32-5975-4a70-bb74-c45c2571be58",
+                      "DeviceSerial": "70B3D5CD04000009",
+                      "Parameters": [
+                        {
+                          "level": 0.64
+                        },
+                        {
+                          "temperature": 23.62
+                        },
+                        {
+                          "chargelevel": 3.52
+                        }
+                      ],
+                      "Timestamp": "2024-03-08T02:38:43.256999969Z"
+                    }
+                  ],
+                  "created_by": "SYSTEM_SNS",
+                  "created_at": "2024-03-08T02:38:45.538360739Z",
+                  "update_by": "SYSTEM_SNS",
+                  "updated_at": "2024-03-08T02:49:25.600135755Z"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
     "/users": {
       "get": {
         "tags": ["esma-v1"],
@@ -1647,6 +3395,741 @@
       }
     },
     "schemas": {
+      "GetWebhook": {
+        "title": "GetWebhook",
+        "required": ["items"],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "items": [
+            {
+              "id": "80753835-6d3f-47a4-a3c1-2e3a047b135e",
+              "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+              "url": "https://658607a55dbb405c8068248e573143ce.api.mockbin.io",
+              "headers": null,
+              "retry_count": 3,
+              "is_suppressed": false,
+              "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+              "created_at": "2024-03-06T15:44:24.501367288Z"
+            },
+            {
+              "id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+              "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+              "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+              "headers": null,
+              "retry_count": 1,
+              "is_suppressed": true,
+              "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+              "created_at": "2024-03-06T16:49:21.839990655Z",
+              "updated_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+              "updated_at": "2024-03-07T06:57:53.972234214Z"
+            },
+            {
+              "id": "1dc3d2cb-40c7-4323-986f-153c79341a30",
+              "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+              "url": "https://5a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+              "headers": null,
+              "retry_count": 3,
+              "is_suppressed": false,
+              "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+              "created_at": "2024-03-08T00:04:29.747115547Z"
+            }
+          ]
+        }
+      },
+      "Item": {
+        "title": "Item",
+        "required": [
+          "id",
+          "subscription",
+          "url",
+          "headers",
+          "retry_count",
+          "is_suppressed",
+          "created_by",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "subscription": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "string",
+            "nullable": true
+          },
+          "retry_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "is_suppressed": {
+            "type": "boolean"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "80753835-6d3f-47a4-a3c1-2e3a047b135e",
+          "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+          "url": "https://658607a55dbb405c8068248e573143ce.api.mockbin.io",
+          "headers": null,
+          "retry_count": 3,
+          "is_suppressed": false,
+          "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+          "created_at": "2024-03-06T15:44:24.501367288Z"
+        }
+      },
+      "GetWebhookDetails": {
+        "title": "GetWebhookDetails",
+        "required": [
+          "id",
+          "subscription",
+          "url",
+          "headers",
+          "retry_count",
+          "is_suppressed",
+          "created_by",
+          "created_at",
+          "updated_by",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "subscription": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "string",
+            "nullable": true
+          },
+          "retry_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "is_suppressed": {
+            "type": "boolean"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+          "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+          "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+          "headers": null,
+          "retry_count": 1,
+          "is_suppressed": true,
+          "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+          "created_at": "2024-03-06T16:49:21.839990655Z",
+          "updated_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+          "updated_at": "2024-03-07T06:57:53.972234214Z"
+        }
+      },
+      "CreateWebhookRequest": {
+        "title": "CreateWebhookRequest",
+        "required": ["url", "headers", "retry_count"],
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Headers"
+              },
+              {}
+            ]
+          },
+          "retry_count": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "url": "https://2a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+          "headers": {
+            "test": "1",
+            "test2": "2"
+          },
+          "retry_count": 3
+        }
+      },
+      "Headers": {
+        "title": "Headers",
+        "required": ["test", "test2"],
+        "type": "object",
+        "properties": {
+          "test": {
+            "type": "string"
+          },
+          "test2": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "test": "1",
+          "test2": "2"
+        }
+      },
+      "CreateWebhook": {
+        "title": "CreateWebhook",
+        "required": [
+          "id",
+          "subscription",
+          "url",
+          "headers",
+          "retry_count",
+          "is_suppressed",
+          "created_by",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "subscription": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Headers"
+              },
+              {}
+            ]
+          },
+          "retry_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "is_suppressed": {
+            "type": "boolean"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "a60886b2-808d-4dda-bcde-7d8239720739",
+          "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+          "url": "https://2a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+          "headers": {
+            "test": "1",
+            "test2": "2"
+          },
+          "retry_count": 3,
+          "is_suppressed": false,
+          "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+          "created_at": "2024-03-08T02:29:56.65214508Z"
+        }
+      },
+      "GetTrigger": {
+        "title": "GetTrigger",
+        "required": ["items"],
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Item1"
+            },
+            "description": ""
+          }
+        },
+        "example": {
+          "items": [
+            {
+              "id": "8093d973-0726-4f67-9361-d23c10853cfb",
+              "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+              "webhook_id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+              "status": "FAILED",
+              "retries": 4,
+              "created_by": "SYSTEM_SNS",
+              "created_at": "2024-03-06T17:19:24.554530788Z",
+              "update_by": "SYSTEM_SNS",
+              "updated_at": "2024-03-06T17:29:27.025202084Z"
+            },
+            {
+              "id": "fa369c7a-b8a8-4f7a-a5d7-f293ab988cd9",
+              "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+              "webhook_id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+              "status": "FAILED",
+              "retries": 4,
+              "created_by": "SYSTEM_SNS",
+              "created_at": "2024-03-06T17:19:15.785483112Z",
+              "update_by": "SYSTEM_SNS",
+              "updated_at": "2024-03-06T17:29:27.026863171Z"
+            },
+            {
+              "id": "a1815f1e-4206-4d56-b788-a06a1f9ca6d7",
+              "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+              "webhook_id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+              "status": "FAILED",
+              "retries": 4,
+              "created_by": "SYSTEM_SNS",
+              "created_at": "2024-03-06T17:18:45.647524635Z",
+              "update_by": "SYSTEM_SNS",
+              "updated_at": "2024-03-06T17:29:26.801804923Z"
+            }
+          ]
+        }
+      },
+      "Item1": {
+        "title": "Item1",
+        "required": [
+          "id",
+          "subscription",
+          "webhook_id",
+          "status",
+          "retries",
+          "created_by",
+          "created_at",
+          "update_by",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "subscription": {
+            "type": "string"
+          },
+          "webhook_id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "retries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "update_by": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "8093d973-0726-4f67-9361-d23c10853cfb",
+          "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+          "webhook_id": "fa978c7e-a555-4616-b684-75d49aa7ecb8",
+          "status": "FAILED",
+          "retries": 4,
+          "created_by": "SYSTEM_SNS",
+          "created_at": "2024-03-06T17:19:24.554530788Z",
+          "update_by": "SYSTEM_SNS",
+          "updated_at": "2024-03-06T17:29:27.025202084Z"
+        }
+      },
+      "GetTriggerDetails": {
+        "title": "GetTriggerDetails",
+        "required": [
+          "id",
+          "subscription",
+          "webhook_id",
+          "webhook",
+          "status",
+          "retries",
+          "trigger_logs",
+          "body",
+          "created_by",
+          "created_at",
+          "update_by",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "subscription": {
+            "type": "string"
+          },
+          "webhook_id": {
+            "type": "string"
+          },
+          "webhook": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Webhook"
+              },
+              {}
+            ]
+          },
+          "status": {
+            "type": "string"
+          },
+          "retries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trigger_logs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TriggerLog"
+            },
+            "description": ""
+          },
+          "body": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Body"
+            },
+            "description": ""
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "update_by": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "0da811e7-e1ce-4787-8239-ebf699196570",
+          "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+          "webhook_id": "9cfc68b9-e216-4629-a154-053e4f4f55b7",
+          "webhook": {
+            "id": "9cfc68b9-e216-4629-a154-053e4f4f55b7",
+            "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+            "url": "https://2a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+            "headers": null,
+            "retry_count": 3,
+            "is_suppressed": false,
+            "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+            "created_at": "2024-03-08T02:37:05.307226951Z"
+          },
+          "status": "FAILED",
+          "retries": 4,
+          "trigger_logs": [
+            {
+              "response_body": "{\n  \"type\": \"https://httpproblems.com/http-status/400\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"instance\": \"/2a2c11x0-faed-4f62-80da-b41862019d06\",\n  \"trace\": {\n    \"timestamp\": \"2024-03-08T02:38:45.775Z\",\n    \"requestId\": \"13fea9c6-77a0-4a66-93ca-25e23ba28ac4\",\n    \"buildId\": \"fb9c10b8-f38c-4e4a-b370-97cfa502edb9\",\n    \"rayId\": \"860f736ef9d83adb\"\n  }\n}",
+              "status_code": 400
+            },
+            {
+              "response_body": "{\n  \"type\": \"https://httpproblems.com/http-status/400\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"instance\": \"/2a2c11x0-faed-4f62-80da-b41862019d06\",\n  \"trace\": {\n    \"timestamp\": \"2024-03-08T02:39:25.658Z\",\n    \"requestId\": \"59aafc77-888a-444b-971b-57c3b345b297\",\n    \"buildId\": \"fb9c10b8-f38c-4e4a-b370-97cfa502edb9\",\n    \"rayId\": \"860f7468e87d3b59\"\n  }\n}",
+              "status_code": 400
+            },
+            {
+              "response_body": "{\n  \"type\": \"https://httpproblems.com/http-status/400\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"instance\": \"/2a2c11x0-faed-4f62-80da-b41862019d06\",\n  \"trace\": {\n    \"timestamp\": \"2024-03-08T02:44:25.662Z\",\n    \"requestId\": \"a33421fa-271a-4eb5-9f47-dfa063139a43\",\n    \"buildId\": \"fb9c10b8-f38c-4e4a-b370-97cfa502edb9\",\n    \"rayId\": \"860f7bbac83a28a4\"\n  }\n}",
+              "status_code": 400
+            },
+            {
+              "error": "Maximum number of retries exceeded"
+            }
+          ],
+          "body": [
+            {
+              "DeviceId": "6d832f32-5975-4a70-bb74-c45c2571be58",
+              "DeviceSerial": "70B3D5CD04000009",
+              "Parameters": [
+                {
+                  "level": 0.64
+                },
+                {
+                  "temperature": 23.62
+                },
+                {
+                  "chargelevel": 3.52
+                }
+              ],
+              "Timestamp": "2024-03-08T02:38:43.256999969Z"
+            }
+          ],
+          "created_by": "SYSTEM_SNS",
+          "created_at": "2024-03-08T02:38:45.538360739Z",
+          "update_by": "SYSTEM_SNS",
+          "updated_at": "2024-03-08T02:49:25.600135755Z"
+        }
+      },
+      "Webhook": {
+        "title": "Webhook",
+        "required": [
+          "id",
+          "subscription",
+          "url",
+          "headers",
+          "retry_count",
+          "is_suppressed",
+          "created_by",
+          "created_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "subscription": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "string",
+            "nullable": true
+          },
+          "retry_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "is_suppressed": {
+            "type": "boolean"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "9cfc68b9-e216-4629-a154-053e4f4f55b7",
+          "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+          "url": "https://2a2c11x0-faed-4f62-80da-b41862019d06.api.mockbin.io",
+          "headers": null,
+          "retry_count": 3,
+          "is_suppressed": false,
+          "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+          "created_at": "2024-03-08T02:37:05.307226951Z"
+        }
+      },
+      "TriggerLog": {
+        "title": "TriggerLog",
+        "type": "object",
+        "properties": {
+          "response_body": {
+            "type": "string"
+          },
+          "status_code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "response_body": "{\n  \"type\": \"https://httpproblems.com/http-status/400\",\n  \"title\": \"Bad Request\",\n  \"status\": 400,\n  \"instance\": \"/2a2c11x0-faed-4f62-80da-b41862019d06\",\n  \"trace\": {\n    \"timestamp\": \"2024-03-08T02:38:45.775Z\",\n    \"requestId\": \"13fea9c6-77a0-4a66-93ca-25e23ba28ac4\",\n    \"buildId\": \"fb9c10b8-f38c-4e4a-b370-97cfa502edb9\",\n    \"rayId\": \"860f736ef9d83adb\"\n  }\n}",
+          "status_code": 400
+        }
+      },
+      "Body": {
+        "title": "Body",
+        "required": ["DeviceId", "DeviceSerial", "Parameters", "Timestamp"],
+        "type": "object",
+        "properties": {
+          "DeviceId": {
+            "type": "string"
+          },
+          "DeviceSerial": {
+            "type": "string"
+          },
+          "Parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Webhook-Parameter"
+            },
+            "description": ""
+          },
+          "Timestamp": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "DeviceId": "6d832f32-5975-4a70-bb74-c45c2571be58",
+          "DeviceSerial": "70B3D5CD04000009",
+          "Parameters": [
+            {
+              "level": 0.64
+            },
+            {
+              "temperature": 23.62
+            },
+            {
+              "chargelevel": 3.52
+            }
+          ],
+          "Timestamp": "2024-03-08T02:38:43.256999969Z"
+        }
+      },
+      "Webhook-Parameter": {
+        "title": "Webhook-Parameter",
+        "type": "object",
+        "properties": {
+          "level": {
+            "type": "number"
+          },
+          "temperature": {
+            "type": "number"
+          },
+          "chargelevel": {
+            "type": "number"
+          }
+        },
+        "example": {
+          "level": 0.64
+        }
+      },
+      "UpdateWebhookRequest": {
+        "title": "UpdateWebhookRequest",
+        "required": ["url", "retry_count"],
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "retry_count": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "example": {
+          "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+          "retry_count": 3
+        }
+      },
+      "UpdateWebhook": {
+        "title": "UpdateWebhook",
+        "required": [
+          "id",
+          "subscription",
+          "url",
+          "headers",
+          "retry_count",
+          "is_suppressed",
+          "created_by",
+          "created_at",
+          "updated_by",
+          "updated_at"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "subscription": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "string",
+            "nullable": true
+          },
+          "retry_count": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "is_suppressed": {
+            "type": "boolean"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          },
+          "updated_at": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "id": "9cfc68b9-e216-4629-a154-053e4f4f55b7",
+          "subscription": "50d0d30e-68d9-4480-af86-666575274179",
+          "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+          "headers": null,
+          "retry_count": 3,
+          "is_suppressed": false,
+          "created_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+          "created_at": "2024-03-08T02:37:05.307226951Z",
+          "updated_by": "6b6e3561-67f8-424b-93f0-6ce6d3f05c08",
+          "updated_at": "2024-03-08T03:03:27.021188864Z"
+        }
+      },
+      "DeleteWebhook": {
+        "title": "DeleteWebhook",
+        "required": ["message", "timestamp"],
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "message": "Deleted successfully",
+          "timestamp": "2024-03-08T02:36:12.391133282Z"
+        }
+      },
       "Error": {
         "required": ["title"],
         "properties": {
