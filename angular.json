@@ -31,7 +31,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/swagger-ui/dist/swagger-ui.css"
+              "src/swaggerstyles.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -46,7 +46,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",

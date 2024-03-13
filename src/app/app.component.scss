@@ -161,3 +161,7 @@
   backdrop-filter: blur(var(--scroll-blur, 0px));
   background: var(--scroll-gradient, transparent);
 }
+
+.scheme-container{
+  background-color: red !important;
+}
