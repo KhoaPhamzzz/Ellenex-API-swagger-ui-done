@@ -404,16 +404,26 @@
                     "$ref": "#/components/schemas/UpdateWebhookRequest"
                   },
                   {
-                    "example": {
-                      "url": "https://ellenex-webhook.free.beeceptor.com/todos",
-                      "retry_count": 3
+                    "type": "object",
+                    "properties": {
+                      "headers": {
+                        "type": "object",
+                        "description": "Custom headers to be sent with the webhook",
+                        "additionalProperties": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
-                ]
-              },
-              "example": {
-                "url": "https://ellenex-webhook.free.beeceptor.com/todos",
-                "retry_count": 3
+                ],
+                "example": {
+                  "url": "https://ellenex-webhook.free.beeceptor.com/todos",
+                  "headers": {
+                    "test": "3",
+                    "test2": "4"
+                  },
+                  "retry_count": 3
+                }
               }
             }
           },
