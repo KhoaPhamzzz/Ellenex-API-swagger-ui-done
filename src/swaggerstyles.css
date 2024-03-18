@@ -10203,7 +10203,7 @@
 }
 
 .swagger-ui .btn:hover {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
 .swagger-ui .btn.cancel {
@@ -10371,18 +10371,27 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: #f7f7f7
-    url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13.418 7.859a.695.695 0 0 1 .978 0 .68.68 0 0 1 0 .969l-3.908 3.83a.697.697 0 0 1-.979 0l-3.908-3.83a.68.68 0 0 1 0-.969.695.695 0 0 1 .978 0L10 11z"/></svg>')
+  background: #f1f5f9
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 20 20%22%3E%0A %20 %20%3Cpath d%3D%22M13.418 7.859a.695.695 0 0 1 .978 0 .68.68 0 0 1 0 .969l-3.908 3.83a.697.697 0 0 1-.979 0l-3.908-3.83a.68.68 0 0 1 0-.969.695.695 0 0 1 .978 0L10 11z%22 fill%3D%22%23205493%22/%3E%0A%3C/svg%3E")
     right 10px center no-repeat;
   background-size: 20px;
-  border: 2px solid #41444e;
+  border: 2px solid #205493;
+  color: #205493;
   border-radius: 4px;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
-  color: #3b4151;
   font-family: sans-serif;
   font-size: 14px;
   font-weight: 700;
-  padding: 5px 40px 5px 10px;
+  padding: 7px 40px 7px 10px;
+}
+
+.swagger-ui select:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3); /* Slightly larger and darker shadow on hover */
+}
+/* Removes the default focus outline and channge it tpo blue when click */
+#servers:focus {
+  outline: none; /* Removes the default focus outline */
+  border: 2px solid #205493;
 }
 
 .swagger-ui select[multiple] {
@@ -10986,6 +10995,7 @@
 .swagger-ui .servers-title {
   font-size: 12px;
   font-weight: 700;
+  color: #205493;
 }
 
 .swagger-ui .operation-servers h4.message {
