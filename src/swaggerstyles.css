@@ -9262,7 +9262,7 @@
 }
 
 .swagger-ui .opblock-tag:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: white;
 }
 
 .swagger-ui .opblock-tag {
@@ -9271,6 +9271,7 @@
   font-weight: 700;
   font-size: 24px;
   margin: 0 0 0px;
+  padding: 28px;
 }
 
 .swagger-ui .opblock-tag.no-desc span {
@@ -9376,9 +9377,7 @@
   border: 0px solid #000;
   border-left: none;
   border-right: none;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 20px;
+  padding: 20px;
   border-radius: 0px;
   box-shadow: 0 -3px 3px -2px rgba(0, 0, 0, 0.19),
     /* Top shadow */ 0 3px 3px -2px rgba(0, 0, 0, 0.19) /* Bottom shadow */ !important;
@@ -11304,8 +11303,9 @@
 }
 
 .swagger-ui .info .title {
-  color: #3b4151;
+  /* color: #3b4151; */
   font-family: "Inter";
+  color: #112e51;
   font-weight: 800;
   font-size: 36px;
   margin: 0;

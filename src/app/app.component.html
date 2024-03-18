@@ -3,113 +3,115 @@
   <div class="overlay" *ngIf="isSideNavVisible" (click)="toggleSideNav()"></div>
 
   <!-- sidebar -->
-  <div class="side-nav" [class.active]="isSideNavVisible">
-    <div
-      class="hamburger-menu pt-[9px]"
-      [class.white]="isSideNavVisible"
-      (click)="toggleSideNav()"
-    >
-      <!-- SVG for Close (X) Icon, shown only when side-nav is active -->
-      <svg
-        *ngIf="isSideNavVisible"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+  <div class="scrollbar" id="scrollbar2">
+    <div class="side-nav" [class.active]="isSideNavVisible">
+      <div
+        class="hamburger-menu pt-[9px]"
+        [class.white]="isSideNavVisible"
+        (click)="toggleSideNav()"
       >
-        <line x1="3" y1="3" x2="21" y2="21"></line>
-        <line x1="3" y1="21" x2="21" y2="3"></line>
-      </svg>
-    </div>
-
-    <div class="px-4 py-1">
-      <!-- for  Logo -->
-      <div class="logo"></div>
-    </div>
-    <ul class="list-none rounded-lg p-[0.625rem] overflow-auto">
-      <ng-container *ngFor="let section of apiSections">
-        <!-- Section header for side nav -->
-        <div
-          class="pl-2.5 pr-6 relative pb-[6px] pt-[4px] text-white font-sans font-semibold text-sm blur-bg-text"
+        <!-- SVG for Close (X) Icon, shown only when side-nav is active -->
+        <svg
+          *ngIf="isSideNavVisible"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-          {{ section.customName }}
+          <line x1="3" y1="3" x2="21" y2="21"></line>
+          <line x1="3" y1="21" x2="21" y2="3"></line>
+        </svg>
+      </div>
+
+      <div class="px-4 py-1">
+        <!-- for  Logo -->
+        <div class="logo"></div>
+      </div>
+      <ul class="list-none rounded-lg p-[0.625rem] overflow-auto">
+        <ng-container *ngFor="let section of apiSections">
+          <!-- Section header for side nav -->
           <div
-            class="absolute bottom-0 left-1 right-1 border-b border-cyan-300"
+            class="pl-2.5 pr-6 relative pb-[6px] pt-[4px] text-white font-sans font-semibold text-sm blur-bg-text"
+          >
+            {{ section.customName }}
+            <div
+              class="absolute bottom-0 left-1 right-1 border-b border-cyan-300"
+            ></div>
+          </div>
+          <!-- display tag name from json file -->
+          <li class="custom-background rounded mt-[10px] mb-[4px] last:mb-0">
+            <a
+              href="#"
+              [class.selected]="selectedTag === section.tag"
+              class="flex items-center hover:bg-white hover:text-black text-white text-center py-2 rounded no-underline pl-3.5"
+              (click)="navigateToTag(section.tag, $event)"
+            >
+              <!-- svg (x) icon closing -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+                fit=""
+                height="20"
+                width="20"
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+                class="mr-2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.867 19.125h.008v.008h-.008v-.008z"
+                ></path>
+              </svg>
+              {{ section.name }}
+            </a>
+          </li>
+        </ng-container>
+        <!-- Schemas header and button on side nav -->
+        <div
+          class="px-6 relative pb-[6px] pt-[4px] text-white font-sans text-sm mt-[6px] -ml-[15px] font-semibold blur-bg-text"
+        >
+          SCHEMAS
+          <div
+            class="absolute bottom-0 left-4 right-0.5 border-b border-cyan-300 mt-[70px]"
           ></div>
         </div>
-        <!-- display tag name from json file -->
-        <li class="custom-background rounded mt-[10px] mb-[4px] last:mb-0">
-          <a
-            href="#"
-            [class.selected]="selectedTag === section.tag"
-            class="flex items-center hover:bg-white hover:text-black text-white text-center py-2 rounded no-underline pl-3.5"
-            (click)="navigateToTag(section.tag, $event)"
+        <div class="custom-background rounded">
+          <li
+            class="schemas-button mb-[4px] pt-[6px] mt-[10px] hover:bg-white hover:text-black flex items-center text-white text-center py-2 rounded no-underline pl-3.5"
+            [class.selected]="selectedTag === 'schemas'"
+            (click)="navigateToModels($event)"
           >
-            <!-- svg (x) icon closing -->
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
-              fit=""
-              height="20"
-              width="20"
-              preserveAspectRatio="xMidYMid meet"
-              focusable="false"
-              class="mr-2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z"
-              ></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.867 19.125h.008v.008h-.008v-.008z"
-              ></path>
-            </svg>
-            {{ section.name }}
-          </a>
-        </li>
-      </ng-container>
-      <!-- Schemas header and button on side nav -->
+            Go to Schemas
+          </li>
+        </div>
+      </ul>
       <div
-        class="px-6 relative pb-[6px] pt-[4px] text-white font-sans text-sm mt-[6px] -ml-[15px] font-semibold blur-bg-text"
+        class="blur-bg-text text-white border-cyan-300 flex flex-0 items-center flex-nowrap justify-center m-[11px] py-3 whitespace-normal text-xs rounded-md border border-solid relative border-cyan"
       >
-        SCHEMAS
-        <div
-          class="absolute bottom-0 left-4 right-0.5 border-b border-cyan-300 mt-[70px]"
-        ></div>
-      </div>
-      <div class="custom-background rounded">
-        <li
-          class="schemas-button mb-[4px] pt-[6px] mt-[10px] hover:bg-white hover:text-black flex items-center text-white text-center py-2 rounded no-underline pl-3.5"
-          [class.selected]="selectedTag === 'schemas'"
-          (click)="navigateToModels($event)"
+        <span>© Powered by &nbsp;</span>
+        <a
+          href="https://ellenex.com"
+          target="_blank"
+          class="text-cyan-300 font-bold"
+          >ellenex</a
         >
-          Go to Schemas
-        </li>
+        <span>&nbsp; All Rights Reserved.</span>
       </div>
-    </ul>
-    <div
-      class="blur-bg-text text-white border-cyan-300 flex flex-0 items-center flex-nowrap justify-center m-[11px] py-3 whitespace-normal text-xs rounded-md border border-solid relative border-cyan"
-    >
-      <span>© Powered by &nbsp;</span>
-      <a
-        href="https://ellenex.com"
-        target="_blank"
-        class="text-cyan-300 font-bold"
-        >ellenex</a
-      >
-      <span>&nbsp; All Rights Reserved.</span>
     </div>
   </div>
 
@@ -143,6 +145,7 @@
     <div id="swagger-ui" class="swagger-container max-w-full">
       <div *ngFor="let section of apiSections" [id]="section.tag">
         <!-- Content will be dynamically loaded by Swagger UI -->
+        <div>Download</div>
       </div>
     </div>
     <footer class="pb-6">
