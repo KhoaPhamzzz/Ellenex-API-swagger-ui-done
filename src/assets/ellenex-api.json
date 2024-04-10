@@ -2077,6 +2077,24 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "The maximum number of devices to return in a single request",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "last_key",
+            "in": "query",
+            "required": false,
+            "description": "The last_key value from the previous response to continue pagination",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2085,7 +2103,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Devices"
+                  "$ref": "#/components/schemas/Devices",
+                  "example": {
+                    "view": {
+                      "@type": "PartialDevicesView",
+                      "@id": "/v1/edi/devices",
+                      "last_key": "G7xJLlCeRNBqvJKTiFkPDe9F6aw1ZdaSoObQEG9DOm4fGXu7YZzmpdtdXqu1W6wvuBrnKhUhcnFm1Jbqb4yVp-Dv0rcdy48Lu8OjNZtIo14pGROXVBGctpTG6DsIhuzSXxmVBzYi5REgbGWUNYuEGubM7HSF1TXqSDYp4YhjSGZ8qoeS7JB4CgMo-sB-hAV3dQh-ZAdb1YKcSz69A8F0svS6kQVo_fNTVGeswmUQ"
+                    }
+                  }
                 }
               }
             }
@@ -3787,23 +3812,11 @@
           },
           "@id": {
             "type": "string",
-            "example": "/v1/edi/devices?page=1"
+            "example": "/v1/edi/devices"
           },
-          "first": {
+          "last_key": {
             "type": "string",
-            "example": "/v1/edi/devices?page=1"
-          },
-          "previous": {
-            "type": "string",
-            "example": "/v1/edi/devices?page=1"
-          },
-          "next": {
-            "type": "string",
-            "example": "/v1/edi/devices?page=1"
-          },
-          "last": {
-            "type": "string",
-            "example": "/v1/edi/devices?page=1"
+            "example": "G7xJLlCeRNBqvJKTiFkPDe9F6aw1ZdaSoObQEG9DOm4fGXu7YZzmpdtdXqu1W6wvuBrnKhUhcnFm1Jbqb4yVp-Dv0rcdy48Lu8OjNZtIo14pGROXVBGctpTG6DsIhuzSXxmVBzYi5REgbGWUNYuEGubM7HSF1TXqSDYp4YhjSGZ8qoeS7JB4CgMo-sB-hAV3dQh-ZAdb1YKcSz69A8F0svS6kQVo_fNTVGeswmUQ"
           }
         }
       },
